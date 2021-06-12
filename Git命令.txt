@@ -1,0 +1,15 @@
+git init // 初始化仓库
+git add 代码.txt // 添加至暂存区
+git commit -m "第一次提交"
+git status // 查看状态
+git log // 查看日志
+git reset 61389f6a3f65a33a5c57154e22cbc21ac267c1f --hard // 撤回,回退
+git reflog // 查看操作记录
+git checkout -b AAA // 创建分支
+git checkout master // 切换分支
+git branch // 查看所有分支
+git merge 分支名 // 合并
+git clone git地址 // 克隆代码
+git push  // 提交到远端仓库,前提是要先设置上流分支,git push --set-upstream
+git fetch // 将远端仓库的分支,拉取到本地
+git pull  // 它等同于先 fetch 再自动 merge,更新操作

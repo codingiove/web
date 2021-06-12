@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [10, 20, 30, 100, 200];
+      let newarr = arr.filter((n) => {
+        return n < 100;
+      });
+      // filter返回的是满足条件的(只能返回 true/false,并且返回的是一个新数组)
+      let newarr2 = newarr.map((n) => {
+        return n * 12;
+      });
+      // map和 filter的区别 map可以对数组进行操作(比如让数组每个值乘2,或者每个值+10等等)
+      console.log(newarr);
+      console.log(newarr2);
+    </script>
+  </body>
+</html>

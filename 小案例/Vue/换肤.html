@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>换肤</title>
+    <script src="./vue.js"></script>
+    <style>
+      .test {
+        color:var(--color);
+        float: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app" :style="cssProps">
+      <input type="color" v-model="bgHoverColor" />
+      <div class="test">看我变色</div>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: function () {
+        return {
+          bgHoverColor: "#000",
+        };
+      },
+      computed: {
+        cssProps() {
+          return {
+            "--color": this.bgHoverColor,
+          };
+        },
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>set</title>
+    <script src="./vue.js"></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <div v-for="item in list">
+        {{item.name}}
+        <input type="checkbox" :checked="item.select" />
+      </div>
+      <button @click="add">添加属性</button>
+    </div>
+    <script>
+      new Vue({
+        el: ".app",
+        data() {
+          return {
+            list: [
+              {
+                name: 1,
+                // select: false
+              },
+            ],
+          };
+        },
+        methods: {
+          add() {
+            for (const item of this.list) {
+              item.select = true;
+              // 后添加的属性需要使用 $set 把它加到 vue 响应式系统中
+              this.$set(this.list, "select", item.select);
+            }
+          },
+        },
+      });
+      // Vue 在初始化数据时,会使用 Object.defineProperty  重新定义 data 中的所有属性
+      let data = {
+        name: "张三",
+        sex:"男"
+      };
+      for (const key in data) {
+        Object.defineProperty(data, key, {
+          set(newVal) {
+            console.log("数据发生改变", newVal); 
+             // 数据发生改变 李四
+            // 数据发生改变 女
+          },
+        });
+      }
+      data.name = "李四";
+      data.sex = "女";
+      data.age = 18; // 后添加的属性,没有被添加到 Object.defineProperty 中,所以就有了 $set 方法
+    </script>
+  </body>
+</html>

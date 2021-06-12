@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <div id="dome">1</div>
+    <script>
+      /* 
+      获取元素属性的两种方法
+      element.属性
+      element.getAttribute("属性")
+
+      setAttribute能修改自定义属性,也能修改自带的属性
+
+       */
+      var div = document.querySelector("div");
+      // 1.(获取)元素属性值
+      console.log(div.id); //第一种,只能访问自己的属性,不能访问自定义属性 
+      console.log(div.getAttribute("id")); //第二种
+
+      // 2.(设置,创建)元素属性值
+      div.setAttribute("data-index",824); //主要针对自定义属性值
+      console.log((div.index = 123456));//主要内置属性(也就是自带的属性)
+      // 3.删除属性
+      // div.removeAttribute('index')
+    </script>
+  </body>
+</html>

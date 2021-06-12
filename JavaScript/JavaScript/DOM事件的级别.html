@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>按钮</button>
+    <script>
+      // document.addEventListener("click", function() {
+      //   console.log("11");
+
+      // }, false);
+      /*参数解释：
+        参数1：事件名的字符串(注意，没有on)
+        参数2：回调函数：当事件触发时，该函数会被执行
+        参数3：true表示捕获阶段触发，false表示冒泡阶段触发（默认）。
+        如果不写，则默认为false。【重要】*/
+
+      var btn = document.getElementsByTagName("button")[0];
+      // addEventListener: 事件监听器。 原事件被执行的时候，后面绑定的事件照样被执行
+      // 这种写法不存在响应函数被覆盖的情况。（更适合团队开发）
+      btn.addEventListener("click", fn1);
+      btn.addEventListener("click", fn2);
+
+      function fn1() {
+        console.log("事件1");
+      }
+
+      function fn2() {
+        console.log("事件2");
+      }
+      /*
+      我们可以看到，addEventListener()这种绑定事件的方式：
+      一个元素的一个事件，可以绑定多个响应函数。不存在响应函数被覆盖的情况。
+      执行顺序是：事件被触发时，响应函数会按照函数的绑定顺序执行。
+      addEventListener()中的this，是绑定事件的对象。
+      */
+
+      /*
+      事件对象
+      当事件的响应函数被触发时，会产生一个事件对象event。浏览器每次都会将这个事件event作为实参传进之前的响应函数。
+      这个对象中包含了与当前事件相关的一切信息。比如鼠标的坐标、键盘的哪个按键被按下、鼠标滚轮滚动的方向等。
+      获取 event 对象（兼容性问题）
+      所有浏览器都支持event对象，但支持的方式不同。如下。
+      （1）普通浏览器的写法是 event。比如：
+      （2）ie 678 的写法是 window.event。此时，事件对象 event 是作为window对象的属性保存的。
+      于是，我们可以采取一种兼容性的写法。如下：
+      event = event || window.event; // 兼容性写法
+      */
+      
+       //点击页面的任何部分
+        document.onclick = function (event) {
+        event = event || window.event; ////兼容性写法
+        // console.log(event);//事件体
+        // console.log(event.timeStamp);//时间标记
+        // console.log(event.pageX);//鼠标的x轴
+        // console.log(event.pageY);//鼠标的Y轴
+        // console.log(event.screenX);//相对于屏幕的x横坐标
+        // console.log(event.screenY);//相对于屏幕的y横坐标
+        // console.log(event.target);//指标点击那个展示那个元素
+        // console.log(event.type);//类型
+        console.log(event.clientX);
+        console.log(event.clientY);
+    }
+     
+    </script>
+  </body>
+</html>

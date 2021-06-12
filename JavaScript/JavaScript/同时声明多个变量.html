@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //(1)同时声明多个变量
+      var name = "千古壹号",
+        age = 27,
+        number = 100;
+      //(2)先声明，再赋值
+      var a;
+      a = 200;
+      console.log(a); // 打印结果：100
+
+      //(3)不声明，只赋值：（正常）
+      a = 300;
+      console.log(a); // 打印结果：100 这个a在Windows上所以可以console.log(window.a);也能打印出结果
+
+      //(4)只声明，不赋值：（注意，打印 undefined）
+      var a;
+      console.log(a); // 打印结果：undefined
+
+      //(5)不声明，不赋值，直接使用：（会报错）
+      console.log(a); // 会报错
+
+      console.log(a);
+      a = 123; //此时a相当于window.a
+      //交换两个变量的值,最基础的用一个变量先接收
+      var a1 = 100;
+      var a2 = 200;
+      var temp;
+      temp = a1;
+      a1 = a2;
+      a2 = temp;
+    </script>
+  </body>
+</html>

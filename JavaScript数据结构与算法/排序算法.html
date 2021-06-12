@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>冒泡排序</title>
+  </head>
+  <body>
+    <script>
+      function ArrarList() {
+        // 添加一个数组
+        this.array = [];
+        // 给数组添加东西
+        ArrarList.prototype.insert = function (item) {
+          this.array.push(item);
+        };
+        // 将数组转成字符串
+        ArrarList.prototype.toString = function () {
+          // 将数组以-连接
+          return this.array.join("-");
+        };
+        // 冒泡排序 (容易,性能不好)
+        ArrarList.prototype.BubbleSort = function () {
+          var length = this.array.length;
+          for (var j = length - 1; j >= 0; j--) {
+            // 循环第一次 j = 倒数第一 ,第二次 j = 倒数第二 以此类推
+            for (var i = 0; i < j; i++) {
+              // 第一次进来:   i = 0 , 比较数组中 0 和 1 位置的两个数组
+              // 最后一次进来: i = length - 1 (length - 1 代表数组最后一位),比较 length - 1 和 length 的两个数据
+              // i < length - 1,这样写最后一次 ,比较最后第二个 和 最后一个
+              if (this.array[i] > this.array[i + 1]) {
+                // 交换两个位置的数据,保存 0 位置数据
+                var temp = this.array[i];
+                // 比如 [0] = wsc , [1] = wyz
+                // [0] = wyz 把 1 的位置数据赋值给我
+                this.array[i] = this.array[i + 1];
+                // [1] = wsc 然后在把我的数据给你
+                this.array[i + 1] = temp;
+              }
+            }
+          }
+        };
+        // 选择排序 (一般,比冒泡排序好一点)
+        ArrarList.prototype.selectSotr = function () {
+          var length = this.array.length;
+          for (var j = 0; j < length - 1; j++) {
+            // 当前保存位置的数据,比当前的数据大时,就把 current 设置比它小的数据 下标值
+            var current = j;
+            // i = current + 1 一次往后找
+            for (var i = current + 1; i < length; i++) {
+              // 默认从 0 开始找 , 找到比它小的数字,那个小的数字就占用 current 位置的下标值
+              if (this.array[current] > this.array[i]) {
+                // 保存当前比较小的数位置
+                current = i;
+              }
+            }
+            // 进行交换位置
+            var temp = this.array[current];
+            this.array[current] = this.array[j];
+            this.array[j] = temp;
+          }
+        };
+        // 插入排序 (比冒泡和选择排序,性能好,只和大的元素比较,不用全部比较)
+        ArrarList.prototype.insertionSort = function () {
+          var length = this.array.length;
+          // 外层循环: 从第 1个位置开始获取数据
+          for (var i = 1; i < length; i++) {
+            // 内层循环: 获取 i 位置的元素,和前面的数据依次进行比较
+            var temp = this.array[i];
+            var j = i; // j 代替 i
+            // 为什么要用 while 循环 , 因为不知道比较的次数,所以用 while
+            /* 
+              j - 1 代表当前位置减 1 ,当前位置是下标[2],数据是 10
+             this.array[j - 1] = 23
+             temp = 10
+             [13,23,10] 
+              i 前面一个数据大于当前数据,那你就往后移 
+              i 前面是 23,  23 > 10 吗 ?
+              大于那 23 往后移 [13,10,23], 13 > 10 吗 ?
+              [10,12,13],但为什么加 j >= 0 , 因为当前位置会和负数对比,所以让它跟大于 0 的对比
+            */
+            while (this.array[j - 1] > temp && j >= 0) {
+              // 将大于它的数,放到i当前的位置(也就是往后移)
+              // [13,23,10] -> [13,,23]
+              this.array[j] = this.array[j - 1];
+              j--; // 依次往下比
+            }
+            // 将 i放到大于它的数前面
+            // [13,10,23]
+            this.array[j] = temp;
+          }
+        };
+        // 希尔排序 (优化了插入排序)
+        ArrarList.prototype.ShellSort = function () {
+          var length = this.array.length;
+          // 设置间隔
+          var gap = Math.floor(length / 2); //去除小数部分
+          // 增量不断变小,大于1就继续改变增量
+          while (gap >= 1) {
+            // 以 gap作为间隔,进行分组,对分组进行插入排序
+            for (var i = gap; i < length; i++) {
+              var temp = this.array[i];
+              var j = i;
+              //内层循环:j > gap - 1 并且 temp 大于 this.array[j - gap],那么就进行复制
+              while (this.array[j - gap] > temp && j > gap - 1) {
+                this.array[j] = this.array[j - gap];
+                j -= gap;
+              }
+              this.array[j] = temp;
+            }
+            //每次 while 循环后都重新计算新的间隔
+            gap = Math.floor(gap / 2);
+          }
+        };
+        // 快速排序
+      }
+
+      var list = new ArrarList();
+      // 插入数据
+      list.insert(1);
+      list.insert(5);
+      list.insert(8);
+      list.insert(9);
+      list.insert(4);
+      list.insert(7);
+      list.insert(6);
+      list.insert(2);
+      list.insert(3);
+      // 冒泡排序
+      // list.BubbleSort();
+      // 选择排序
+      // list.selectSotr();
+      // 插入排序
+      // list.insertionSort();
+      // 希尔排序
+      list.ShellSort();
+      console.log(list.array);
+    </script>
+  </body>
+</html>

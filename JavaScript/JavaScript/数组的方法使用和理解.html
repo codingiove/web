@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>  
+    <br>
+    <h1>
+      filter 数组过滤 返回满足条件的数组
+      <p>
+        every 方法 用于检测数组是否符合指定条件 返回true/false 都满足true
+        一个没满足false
+      </p>
+      <p>
+        some只要有一项返回true,则停止遍历,此方法返回true
+        要求每一项都返回false,最终的结果才返回false
+      </p>
+      <p>forEach和for循环类似只不过可以遍历索引值和当前数组</p>
+      <p>map可以对数组进行修改和其他操作
+        <p>map,filter,concat,splice,slice会形成一个新的数组</p>
+      </p>
+      <p>reduce()
+         <br>previousValue:上一次调用回调函数时的返回值，或者初始值
+         <br>currentValue:当前正在处理的数组元素
+         <br>currentIndex:当前正在处理的数组元素下标
+         <br>array:调用reduce()方法的数组
+         <br>initialValue:初始值（作为第一次调用回调函数时传给 previousValue 的值）</p>
+         map就是遍历每一项 返回一个新的数组给你
+    </h1>
+    <script>
+
+    /*
+    (1)
+    var arr = [1, 2, 3, 8, 9, 6];
+    var a = arr.filter(item => {
+      //item就是满足条件的 ===8,9,6
+      return item > 5;
+    }); //.length就是满足条件的长度
+    console.log(a);
+    (2)
+    var arr2 = [
+      { name: "不满足1", age: false },
+      { name: "满足1", age: false },
+      { name: "不满足2", age: false },
+      { name: "不满足3", age: false },
+      { name: "满足2", age: false },
+      { name: "满足3", age: true }
+    ];
+    var b = arr2.filter(item => {
+      //默认返回的是 true
+      return item.age == false; //item.age写法 === item.age = true
+    });
+    console.log(b);
+     */
+
+
+    //(3)
+    //every方法可以做全选
+    //every如果有一项返回false,则停止遍历,此方法返回false 要求每一项都返回true,最终的结果才返回true
+    // var b = arr2.every(item => item.age);
+    // console.log(b);
+
+
+    //(4)
+    // //some只要有一项返回true,则停止遍历,此方法返回true 要求每一项都返回false,最终的结果才返回false
+    // var b = arr2.some(item => item.age);
+    // console.log(b);
+
+
+    //(5)
+    //排序
+    // var arr2 = [5, 2, 11, 3, 4, 1];
+    // // 自定义排序规则
+    // var result = arr2.sort(function(a, b) {
+    //   return a - b; // 升序排列 正
+    //   // return b - a; // 降序排列 反
+    // });
+    // console.log( JSON.stringify(result));
+
+
+    //(6)
+    //forEach和for循环类似只不过可以遍历索引值和当前数组
+    //(回调函数中传递三个参数:)
+    // 第一个参数，每个数组元素
+    // 第二个参数，每个数组元素的索引
+    // 第三个参数，数组本身
+    var arr = ["王一", "王二", "王三"];
+    arr.forEach(function(item, index, obj) {
+      console.log("每个数组元素:"+" "+ item);
+      console.log("每个数组元素的索引:"+" "+ index);
+      console.log("数组本身:"+" "+ obj);
+    });
+      /*
+      每个数组元素: 王一
+      每个数组元素的索引: 0
+      数组本身: 王一,王二,王三
+      ----------
+      每个数组元素: 王二
+      每个数组元素的索引: 1
+      数组本身: 王一,王二,王三
+      ----------
+      每个数组元素: 王三
+      每个数组元素的索引: 2
+      数组本身: 王一,王二,王三
+      ----------
+    */
+    
+
+
+    /*
+    //(7)
+    map
+    var arr1 = [1, 3, 6, 2, 5, 6];
+    var arr2 = arr1.map(function(item, index) {
+      // return item + 10; //让arr1中的每个元素加10
+      //可以对数组进行操作
+      return item + 10;
+    });
+    console.log(arr2); //[11, 13, 16, 12, 15, 16]
+      const arr1 = [
+        { name: '千古壹号', age: '28' },
+        { name: '许嵩', age: '32' ,},
+    ];
+
+    //这个(item)就是新生成的 arr1
+    //item.name === arr1.name 获取 arr1 里的所有 name
+    //将数组 arr1 中的 name、age这两个属性，改一下“键”的名字，存储到 arr2中
+    const arr2 = arr1.map(item => ({
+        myName: item.name,
+        myAge: item.age,
+    })); 
+    //将数组 arr1 中的 name 属性，存储到 数组 arr2 中
+    //自己写的
+    const arr2 = arr1.map(item => {
+      return item.name
+    })
+    //修改arr1的 name 和 age
+    const arr3 = arr1.map(arr1 =>({mingcheng:arr1.name, nn:arr1.age,}))
+    console.log('arr2:' + JSON.stringify(arr2));
+    console.log('arr3:' + JSON.stringify(arr3));
+    */
+
+
+
+    /*reduce 累加器 (*8*)
+    参数解释:
+    previousValue:上一次调用回调函数时的返回值，或者初始值
+    currentValue:当前正在处理的数组元素
+    currentIndex:当前正在处理的数组元素下标
+    array:调用reduce()方法的数组
+    initialValue:初始值（作为第一次调用回调函数时传给 previousValue 的值*/
+    
+    var arr = [1,1,1,1];
+    sumValue = arr.reduce(function(total, item) {
+        return total + item;
+        //total计算结束后返回的值
+        //item 当前的元素也就是arr
+    },0);//初始值
+    console.log('sumValue:' + sumValue); // 打印结果:4
+    
+
+
+
+    /*
+    (9)
+    //数组的其他方法
+    indexOf(value)//从前往后索引，获取 value 在数组中的第一个下标。
+    lastIndexOf(value) //从后往前索引，获取 value 在数组中的最后一个下标。
+    var arr = ["a","b","c","d","e","d","c"];
+    console.log(arr.indexOf("c"));       //从前往后，找第一个"c"在哪个位置 2
+    console.log(arr.lastIndexOf("d"));   //从后往前，找第一个"d"在哪个位置 5
+    */
+    
+
+
+    /*  
+    var arr = ["29926392220", "29965620629", "28003663436", " ", "28818504366"];
+    var str = [
+    {name:"smyh", id: "12334"},
+    {name:"vae", id: "28818504366"}
+    ];
+    //先过滤器一遍看看那些满足条件如果不满足条件就 - 1
+    str.filter(item => {
+    console.log(arr.indexOf(item.id));
+    })
+    */
+
+
+
+    /*
+    (10)
+    find()//找出第一个满足指定条件的元素。
+    let arr = [2, 3, 2, 5, 7, 6];
+      let result = arr.find(function (item, index) {
+          return item > 4; //遍历数组arr，一旦发现有第一个元素大于4，就把这个元素返回
+          //备注：一旦找到符合条件的第一个元素，将不再继续往下遍历。
+        });
+    console.log(result);  //打印结果：5
+    */
+
+
+
+    /*
+    (11)
+    findIndex()//找出第一个满足指定条件的元素的index。
+    let arr = [2, 3, 2, 5, 7, 6];
+     let result = arr.findIndex(function (item, index) {
+      return item > 4; //遍历数组arr，一旦发现有第一个元素大于4，就把这个元素的index返回
+    });
+    console.log(result); //打印结果：3
+    */
+
+
+
+    </script>
+  </body>
+</html>

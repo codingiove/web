@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .kobe {
+      width: 500px;
+      height: 500px;
+      background-color: darkorchid;
+    }
+    .bryant {
+      width: 500px;
+      height: 500px;
+      background-color: rgb(255, 230, 0);
+    }
+  </style>
+  <body>
+    <div class="kobe"></div>
+    <script>
+      let div = document.querySelector(".kobe");
+      //添加类
+      // div.classList.add("bryant")
+      //删除类
+      // div.classList.remove("bryant")
+      //切换类
+      div.onclick = function () {
+        div.classList.toggle("bryant")
+      };
+    </script>
+  </body>
+</html>

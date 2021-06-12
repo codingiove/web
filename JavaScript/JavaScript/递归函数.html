@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var data = [
+        {
+          id: 1,
+          name: "家电",
+          goods: [
+            {
+              id: 33,
+              genma: "冰箱",
+            },
+            {
+              id: 22,
+              genma: "洗衣机",
+            },
+          ],
+        },
+        {
+          id: 2,
+          name: "服装",
+        },
+      ];
+
+      function getID(json, id) {
+        json.forEach(function (i) {
+          if (i.id === id) {
+            console.log(i);
+          } else if (i.goods && i.goods.length > 0) {
+            getID(i.goods, id);
+          }
+        });
+      }
+      getID(data, 1);
+      getID(data, 33);
+    </script>
+  </body>
+</html>

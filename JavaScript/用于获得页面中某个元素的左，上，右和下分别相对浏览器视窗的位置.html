@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #box,div{
+      height: 500px;
+      margin-bottom: 200px;
+      background-color: crimson;
+    }
+  </style>
+  <body>
+    <div></div>
+    <div id="box"></div>
+    <script>
+      var object = document.getElementById("box");
+      rectObject = object.getBoundingClientRect();
+      console.log(rectObject.top);
+
+      /* 
+        object.getBoundingClientRect().top;
+        rectObject.top：元素上边到视窗上边的距离;
+      	rectObject.right：元素右边到视窗左边的距离;
+      	rectObject.bottom：元素下边到视窗上边的距离;
+      	rectObject.left：元素左边到视窗左边的距离;
+      	rectObject.width：是元素自身的宽 */
+    </script>
+  </body>
+</html>

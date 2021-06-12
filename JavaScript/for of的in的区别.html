@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [
+        { name: "item1", age: 18 },
+        { name: "item2", age: 19 },
+      ];
+      //  for in 拿到的是下标(索引值)
+      //  如果要想拿到 arr 数组里的 name值要通过
+      //  console.log(arr[i].name)跟普通的for差不多
+
+     /*  for (const i in arr) {
+        if (arr.hasOwnProperty(i)) {
+          console.log(arr[i].name);
+        }
+      } */
+
+      // for of直接拿到的是数组里的每一个对象
+      for (const i of arr) {
+        console.log(i.name);
+      }
+    </script>
+  </body>
+</html>

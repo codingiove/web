@@ -1,0 +1,72 @@
+// less中的变量
+@Vsariable:200px; // 定义 200 数值
+@color:pink;    // 定义颜色
+@class:box22;    // 定义一个类名
+
+div.box1 {
+  width: @Vsariable;
+  height: 100px;
+  background-color: deepskyblue;
+  div.box11 {
+    width: 50px;
+    height: 50px;
+    background-color: deeppink;
+    transition: all .3s;
+    // & 表示外层父元素,也就是 div.box11
+    &:hover{
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+div.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: @color;
+  .@{class}{
+    width: 50px;
+    height: $width; // 直接引用 width 的值
+    background-color: gold;
+  }
+}
+
+.p1 {
+  width: 240px;
+  height: 240px;
+  background-color: gold;
+  border: red 2px solid;
+  margin-top: 20px;
+}
+
+// extend(.p1) 继承 p1 上该有的样式 推荐!!! , 同样的样式不用在写一遍
+.p2:extend(.p1) {
+  background-color: rebeccapurple;
+}
+
+// 这个类专门给别人用,也不会被编写到 css 里
+// 如果不加 () 会编写到 css 里
+.content(){
+  width: 240 / 5px ; // 可以进行加减乘除
+  border: 10px solid rgb(255, 0, 128);
+  margin-top: 20px;
+}
+.p3{
+  .content
+}
+// 在混合函数中可以设置变量 ,也可以设置默认参数
+.test(@w:100px,@h:100px,@bg-color:#bfc){
+  width: @w;
+  height: @h;
+  background-color: @bg-color;
+}
+
+.mixins {
+  // 按顺序传递参数
+  // .test(200px,200px,#bfc)
+  // 指定参数
+  // .test(@bg-color:#bfc , @h:200px , @w:200)
+  .test(900px)
+}
+
+// @import "" 引入其他样式进来

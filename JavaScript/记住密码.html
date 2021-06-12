@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="yhname" />
+    <input type="checkbox" id="chx" />记住密码
+    <script>
+      var yhname = document.querySelector("#yhname");
+      var chx = document.querySelector("#chx");
+
+      if (localStorage.getItem("yhname")) {
+        //如果之前本地存有数据,那我取出来赋值给 input,并且把按钮改为勾选状态
+        yhname.value = localStorage.getItem("yhname");
+        chx.checked = true;
+      }
+      chx.addEventListener("change", function () {
+        //如果是勾选状态那就把数据存起来,否则清除
+        if (this.checked) {
+          localStorage.setItem("yhname", yhname.value);
+        } else {
+          localStorage.removeItem("yhname");
+        }
+      });
+    </script>
+  </body>
+</html>

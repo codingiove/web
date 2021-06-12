@@ -1,0 +1,74 @@
+<!-- text 相当于 span 标签 -->
+<text>hi </text>
+<text>nihao</text>
+
+
+<!-- view 相当于 div 标签 -->
+<view>div1</view>
+<view>div2</view>
+
+
+<!-- 数据绑定 {{}}  -->
+<view>字符串类型:{{message}}</view>
+<view>数字类型:{{num}}</view>
+<view>对象类型:{{obj.name}}-----{{obj.age}}-----{{obj.height}}</view>
+
+
+<!-- 自定义属性 -->
+<view data-custom="{{num}}">自定义属性</view>
+
+
+<!-- 注意项 checked=" {{isgirl}}" 不允许有空格-->
+<view>
+	<checkbox checked="{{isgirl}}"></checkbox>
+</view>
+
+
+<!-- 条件渲染 if -->
+<view wx:if="{{true}}">条件1</view>
+<view wx:elif="{{false}}">条件2</view>
+<view wx:else>条件3</view>
+
+
+<!-- hidden -->
+<view hidden="{{false}}">show</view>
+<view hidden="{{true}}">show牛逼</view>
+
+
+<!-- 绑定事件 -->
+<!-- bindtap 代表点击事件 -->
+<!-- this.setData({ model: e.detail.value }) -->
+<view>
+	<input class="input" bindinput="click" />
+</view>
+<view>{{model}}</view>
+
+
+<!-- 传参问题 -->
+<!-- bindtap="add(1)" 它会把这个当做一个方法 -->
+<!-- 只能通过自定义属性 -->
+<button bindtap="add" data-argument="{{obj.name}}">传参问题</button>
+<view>{{addnum}}</view>
+
+
+<!-- 在375屏幕上 10px 就是 20rpx -->
+<view class="a1">1px</view>
+<view class="a2">1rpx</view>
+
+
+<!-- 全局颜样式 -->
+<view class="Global">全局颜样式</view>
+
+
+<!-- 父传子 -->
+<!-- 子传父(binditemcheng:传过来的名称) -->
+
+<Nav lwh="牛逼克里斯" binditemcheng="hhhh">
+	<view>取代slot</view>
+</Nav>
+
+<view>子传过来的数据:{{son}}</view>
+
+
+<!-- 全局数据 -->
+<view>全局数据: {{globalData}}</view>

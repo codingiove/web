@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+  </head>
+  <style>
+    .dib{
+      width: 500px;
+      height: 500px;
+      background-color: rgb(251, 255, 3);
+    }
+    .kobe {
+      width: 500px;
+      height: 500px;
+      background-color: purple;
+    }
+  </style>
+  <body>
+    <div class="dib"></div>
+    <script>
+      $("div").click(function () {
+        //添加类
+        // $(this).addClass("kobe")
+
+        //删除类
+        // $(this).removeClass("dib")
+
+        //切换类
+        $(this).toggleClass("kobe")
+      });
+    </script>
+  </body>
+</html>

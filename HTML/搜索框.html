@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      background: #645f5e;
+      text-decoration: none;
+    }
+    a {
+      color: #2f3640;
+    }
+    .search-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #2f3640;
+      height: 40px;
+      border-radius: 40px;
+      padding: 10px;
+    }
+    .search-a {
+      float: right;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #2f3640;
+      /* display: flex;
+      justify-items: center;
+      align-items: center; */
+    }
+    .search-input {
+      border: none;
+      outline: none;
+      background: none;
+      /* float: left; */
+      font-size: 16px;
+      transition: 0.4s;
+      line-height: 40px;
+      width: 0;
+    }
+    .search-a img {
+      width: 100%;
+      background: #2f3640;
+    }
+    .search-box:hover .search-input {
+      width: 260px;
+      padding: 0 0 0 8px;
+    }
+  </style>
+  <body>
+    <div class="search-box">
+      <input type="text" placeholder="Type to search" class="search-input" />
+      <a href="JavaScript:;" class="search-a">
+        <img src="./imgs/search.png" alt="" />
+      </a>
+    </div>
+  </body>
+</html>

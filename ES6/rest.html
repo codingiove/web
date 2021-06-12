@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ES6引入 rest 参数(形式为...变量名)，用于获取函数的多余参数
+      function fun(...value) {
+        console.log(value); // (9) [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      }
+      fun(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+      function fun2(item, index, ...value) {
+        console.log(item); // 1
+        console.log(index); // [2, 3]
+        console.log(value); // ["true",{ name: "小明" }]
+      }
+      fun2(1, [2, 3], "true", { name: "小明" });
+
+      function fun3(...value,item) {
+        console.log(value); //  SyntaxError: Rest parameter must be last formal paramete
+      }
+      fun3([2, 3],{ name: "小明" });
+    </script>
+  </body>
+</html>

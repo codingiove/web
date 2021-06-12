@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = ["1", "2", "3", "4"];
+      arr.forEach((item) => {
+        if (item == "1") {
+          console.log("找到了");//打印了1次
+          return true; //代表找到了
+        }
+        console.log("还在循环"); //打印了3次
+      });
+      // forEach 会循环整个数组,及使找到了,它也会循环整个数组,耗性能
+
+      // arr.some((item) => {
+      //   if (item == "1") {
+      //     console.log("找到了");//打印了1次
+      //     return true;
+      //   }
+      //   console.log("还在循环");// 0
+      // });
+      // some找到了就不循环了
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // (1)函数的定义/声明
+      //(命名函数)
+      function fun1() {}
+      //函数表达式 (匿名函数)
+      var fun2 = function () {};
+      //使用构造函数
+      var fun3 = new Function('console.log("我是函数内部的内容");');
+      fun3();
+
+      // fn()和fn的区别【重要】
+      // fn代表的是整个函数，而fn()代表的是返回值
+
+      /* function a(a, b) {
+        console.log(a + b);
+      }
+      a(1, 2); 这是在函数内部打印*/
+
+      /* function a(a, b) {
+        a + b;
+      }
+      console.log(a(1, 1)); undefined 函数执行没有把结果返回*/
+    </script>
+  </body>
+</html>

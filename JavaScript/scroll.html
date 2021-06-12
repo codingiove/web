@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      height: 6000px;
+      width: 5000px;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      /* padding: 10px; */
+      border: 2px solid red;
+    }
+  </style>
+  <body>
+    <div class="box">
+      静静静静静静静静静静静静静静静静静静静静静静静静
+    </div>
+    <script>
+      /*
+      2、scrollTop 和 scrollLeft 
+        scrollLeft：获取水平滚动条滚动的距离。
+        scrollTop： 获取垂直滚动条滚动的距离 
+    
+        
+      1.ScrollWidth 和 scrollHeight
+       ScrollWidth 和 scrollHeight：获取元素整个滚动区域的宽、高。
+       (包括 width 和 padding)
+       不包括 border和 margin
+      */
+      var div = document.getElementsByTagName("div")[0];
+      /*
+       `scrollHeight` 的特点是：如果内容超出了盒子，`scrollHeight`为内容的高（包括超出的内容）
+      如果不超出，`scrollHeight`为盒子本身的高度。
+      IE8以下（不包括IE8），为盒子本身内容的高度。*
+      */
+      console.log(div.scrollWidth);
+      console.log(div.scrollHeight);
+
+      //需求：封装一个兼容的scroll().返回的是对象，用scroll().top获取scrollTop，用scroll().left获取scrollLeft
+      window.onscroll = function() {
+        // var myScroll = scroll();
+        //  myScroll.top;
+        // console.log(scroll().top);
+        //console.log(scroll().left);
+      };
+      //函数封装（简单封装，实际工作使用）
+      function scroll() {
+        return {
+          //此函数的返回值是对象
+          left:window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+          right:window.pageXOffset ||document.body.scrollLeft || document.documentElement.scrollLeft
+        };
+      }
+    </script>
+  </body>
+</html>

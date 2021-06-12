@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.js"></script>
+</head>
+<style>
+  div{
+    width: 200px;
+    height: 300px;
+    background-color: rebeccapurple;
+    margin-top: 10px;
+    display: none;
+  }
+</style>
+<body>
+  <button>下拉滑动</button>
+  <button>上拉滑动</button>
+  <button>切换滑动</button>
+  <button>hover</button>
+  <div></div>
+  <script>
+    $("button").eq(0).click(function () {
+        $("div").slideDown()
+      })
+
+    $("button").eq(1).click(function () {
+        $("div").slideUp()
+     })
+    $("button").eq(2).click(function () {
+        $("div").slideToggle()
+     })
+     $("button").eq(3).hover(function () {
+        $("div").slideToggle()
+     })
+  </script>
+</body>
+</html>

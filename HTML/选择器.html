@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选择器</title>
+  </head>
+  <style>
+    /* 子选择器  (.one > .one_1),选择父元素为 .one 的所有 .one_1 的元素 */
+    .one > .one_1 {
+      width: 100px;
+      height: 100px;
+      background: pink;
+    }
+    /* 兄弟选择器 (.one + .two),选择紧接在 .one 之后的所有 .two 元素 */
+    .one + .two {
+      width: 100px;
+      height: 100px;
+      background:blueviolet;
+    }
+  </style>
+  <body>
+    <div id="box">
+      <div class="one">
+        <p class="one_1"></p>
+        <p class="one_1"></p>
+      </div>
+      <div class="two"></div>
+      <div class="two"></div>
+      <div class="two"></div>
+    </div>
+  </body>
+</html>

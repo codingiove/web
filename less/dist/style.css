@@ -1,0 +1,46 @@
+div.box1 {
+  width: 200px;
+  height: 100px;
+  background-color: deepskyblue;
+}
+div.box1 div.box11 {
+  width: 50px;
+  height: 50px;
+  background-color: deeppink;
+  transition: all 0.3s;
+}
+div.box1 div.box11:hover {
+  width: 100px;
+  height: 100px;
+}
+div.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+}
+div.box2 .box22 {
+  width: 50px;
+  height: 50px;
+  background-color: gold;
+}
+.p1,
+.p2 {
+  width: 240px;
+  height: 240px;
+  background-color: gold;
+  border: red 2px solid;
+  margin-top: 20px;
+}
+.p2 {
+  background-color: rebeccapurple;
+}
+.p3 {
+  width: 48px;
+  border: 10px solid #ff0080;
+  margin-top: 20px;
+}
+.mixins {
+  width: 900px;
+  height: 100px;
+  background-color: #bfc;
+}

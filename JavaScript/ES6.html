@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        可以定义常量
+      */
+      // const e = 27;
+      // e = 888;
+      // console.log(e);
+      //  ↓ 不能给常量重新赋值，但如果是引用类型的话可以进行修改
+      // const e = {
+      //   name: "111"
+      // };
+      // e.name = "const的name被该了";
+      // console.log(e);
+
+      /*
+       解构赋值
+       对象的解构 ↓
+      */
+      // //  写法1
+      // let { name, age, sex } = { name: "小煤球", age: 1, sex: "公" };
+      // // 结果: 小煤球 1 公
+      // console.log(name, age, sex);
+
+      //  写法2： 解构重命名
+      // let { name: lkName, age: lkAge, sex: lkSex } = {
+      //   name: "小煤球",
+      //   age: 1,
+      //   sex: "公"
+      // };
+      // // 结果: 小煤球 1 公
+      // console.log(lkName, lkAge, lkSex);
+
+      // 写法3： 可以设置默认值
+      // let { name, age, sex = "公" } = { name: "小煤球", age: 1 };
+      // console.log(sex);
+      // 公
+
+      //  写法4：省略解构
+      // let [, , sex] = ["小煤球", 1, "公 "];
+      // console.log(sex);
+      // 公
+
+      /*
+      延展操作符
+      */
+      // 1)延展数组
+      // let arr1 = ["a", "b", "c"];
+      // let arr2 = [1, 2, 3];
+      // let result = [...arr1, ...arr2];
+      // console.log(result);
+      //  [ "a", "b", "c", 1, 2, 3 ]
+
+      //2)延展对象
+      // let smallDog = { name: "小煤球", age: 1 };
+      // let bigDog = { name: "Python", age: 2 };
+      // let dog = { ...smallDog, ...bigDog };
+      // console.log(dog);
+      // {name: "Python", age: 2}
+      //!!!注意: 如果对象中的属性一致, 会被覆盖
+
+      // 模板字符串用反引号(`)包含，变量用${}括起来; 在开发中使用是非常灵活的。
+      //1) 模板字符串
+      // let name = "小煤球";
+      // let sex = "公";
+      // let result = `我叫 ${name} , 我是 ${sex} 的`; //动态获取参数
+      // console.log(result);
+      // 我叫 小煤球 , 我是 公 的
+
+      //设置默认值
+      // function logPerson(name, sex = "男", age = 20) {
+      //   console.log(name);
+      //   console.log(sex);
+      //   console.log(age);
+      // }
+      // //undefined 男 20
+      // logPerson();
+      
+      // 1)set
+      //Set有点像数组，不过跟数组不一样的是，Set里面不能有重复的内容；
+      let set = new Set(["张三", "李四", "王五", "张三", "李四"]);
+      console.log(set);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // replace 替换
+      let str1 = "today is fine day,today is fine day !!!";
+      console.log(str1.replace("today", "tomorrow")); // tomorrow is fine day,today is fine day !!!
+      console.log(str1.replace(/today/gi, "tomorrow")); // tomorrow is fine day,tomorrow is fine day !!!
+
+      //去除前后的空格，trim();
+      let str2 = "   a   b   c   ";
+      console.log(str2); //   a   b   c
+      console.log(str2.trim()); // a   b   c
+
+      // 转换大小写
+      let str3 = "abcdEFG";
+      console.log(str3.toLowerCase()); // abcdefg
+      console.log(str3.toUpperCase()); // ABCDEFG
+
+      // charAt 返回指定索引位置的字符串
+      let srt4 = "Hello world";
+      console.log(srt4.charAt(4)); // o
+
+      // indexOf  查找当前字符串第一次出现的索引位
+      // lastIndexOf 最后出现的位置, 7
+      let srt5 = "Hello world";
+      console.log(srt5.indexOf("o")); // 4
+
+      // slice 从 0 开始(包含本身)截取 5 位
+      let srt6 = "Hello world";
+      console.log(srt6.slice(-5)); // world
+      console.log(srt6.slice(0, 5)); // Hello
+      console.log(srt6.slice(-5, 2)); //
+      console.log(srt6.slice(-5, 5)); //
+
+      // split 根据指定的字符串参数将字符串拆成伪数组
+      let srt7 = "asdas,sgsdfg,saggfh,awdgdf";
+      let newarr1 = srt7.split(","); // 需要一个字符串作为参数，将会根据该字符串去拆分数组
+      console.log(newarr1); // ["asdas", "sgsdfg", "saggfh", "awdgdf"]
+
+      let srt8 = "Hello world";
+      // 不传递参数，则会将每个字符都拆分为数组中的一个元素
+      let newarr2 = srt8.split("");
+      console.log(newarr2); // ["H", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+
+      // substr 和 slice 差不多,只不过不能从倒数位截取个数
+      let srt9 = "Hello world";
+      console.log(srt9.substr(-5)); // world
+      console.log(srt9.substr(0, 5)); // Hello
+      console.log(srt9.substr(-5, 2)); // wo
+      console.log(srt9.substr(-5, 5)); // world
+
+      // substring
+      let srt10 = "Hello world";
+      console.log(srt10.substring(0, 3)); // Hel
+
+      // includes 是否包含指定字符串
+      let string = "Hello world";
+      console.log(string.includes("world")); // true
+    </script>
+  </body>
+</html>

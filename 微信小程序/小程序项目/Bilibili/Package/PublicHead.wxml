@@ -1,0 +1,12 @@
+<view class="my_title">
+  <!-- logo -->
+  <navigator class="logo iconfont icon-bilibili" hover-class url="/pages/index/index"></navigator>
+  <!-- 搜索 -->
+  <view class="search iconfont icon-sousuo"></view>
+  <!-- 用户 -->
+  <view class="user iconfont icon-bilibilidonghua"></view>
+  <!-- 下载 app -->
+  <view class="download">
+    下载App
+  </view> 
+</view>    

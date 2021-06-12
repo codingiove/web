@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* var arr = [5, 1, 9, 55, 77, 99];
+      var max = arr[0];
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+          max = arr[i];
+        }
+      }
+      console.log(max); 数组最大值*/
+
+      /* var arr = [5, 1, 9, 55, 77, 99];
+      var newArr = [];
+      var j = 0
+      for (var i = 0; i < arr.length; i++) {
+        if(arr[i] >= 10){
+          newArr[j] = arr[i]
+          j++;
+        }
+      }
+      console.log(newArr) 最大值放到新数组里 方法1*/
+
+      /* var arr = [5, 1, 9, 55, 77, 99];
+      var newArr = [];
+      for (var i = 0; i < arr.length; i++) {
+        if(arr[i] >= 10){
+          newArr[newArr.length] = arr[i]
+        }
+      }
+       console.log(newArr) //最大值放到新数组里 方法2 */
+
+      /* var arr = [5, 1, 9, 55, 77, 99];
+      var newArr = [];
+      for (var i = arr.length - 1; i >= 0; i--) {
+          newArr[newArr.length] = arr[i];
+      }
+      console.log(newArr); //反转数组 */
+
+      /* var arr = [1,2,3]
+      console.log(arr.indexOf(4)); -1 */
+
+      function unique(arr) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (newArr.indexOf(arr[i]) === -1) {
+            // 找不到也就是没有就返回 -1
+            newArr.push(arr[i]);
+          }
+        }
+        return newArr;
+      }
+      var a = unique([1, 2, 2]);
+      console.log(a); //数组去重
+
+      /* var str = "saddcfd";
+      var index = str.indexOf("d");
+      while (index !== -1) {
+        console.log(index);
+        index = str.indexOf("d", index + 1);
+      } 查找d出现的位置*/
+
+      /* var str = "asdsgjdgksdfa";
+      var obj = {};
+      for (var i = 0; i < str.length; i++) {
+        newstr = str.charAt(i);//newstr 是每一个字符(obj['a']不能写死,所以换个变量)
+        if (obj[newstr]) {//每一个字符进行判断有没有一样的值,有就加 +1,没有就 = 1
+          //字符串是加''的所以不能用obj.newstr
+          obj[newstr] ++;
+        } else {
+          obj[newstr] = 1;
+        }
+      }
+      console.log(obj); */ //查找字符串里出现次数最多的字符串
+    </script>
+  </body>
+</html>

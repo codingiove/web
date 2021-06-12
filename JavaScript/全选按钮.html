@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    input {
+      display: block;
+    }
+    #all {
+      margin-bottom: 20px;
+    }
+  </style>
+  <body>
+    <div>
+      <input type="checkbox" id="all" />
+    </div>
+
+    <div id="tbs">
+      <input type="checkbox" />
+      <input type="checkbox" />
+      <input type="checkbox" />
+      <input type="checkbox" />
+      <input type="checkbox" />
+    </div>
+    <script>
+      var all = document.getElementById("all");
+      var checkbox = document.getElementById('tbs').getElementsByTagName('input');
+
+      all.onclick = function () {
+        for (let i = 0; i < checkbox.length; i++) {
+          checkbox[i].checked = this.checked; //我全按钮选中了 那么我下面的按钮也改为选中状态
+        }
+      };
+
+      //tbs里的按钮全部选中 全选才为选中状态
+      for (var i = 0; i < checkbox.length; i++) {//给每一个checkbox加点击事件
+        checkbox[i].onclick = function () {
+          var key = true;//默认为选中状态
+          for (var i = 0; i < checkbox.length; i++) {//检查复选框是否全部选中
+            if (!checkbox[i].checked) {
+              //如果 tbs 里的按钮有一个没被选中那么 all 状态就为 false
+              //如果全部选中就把 key给 all
+              key = false;
+              break;
+            }
+          }
+          all.checked = key;
+        };
+      }
+    </script>
+  </body>
+</html>

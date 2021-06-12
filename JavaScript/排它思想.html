@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <script>
+      // 先添加点击事件,在清空样式,然后在给当前那个加样式
+      // 我点击另外一个按钮就把上一个点击的按钮样式清空
+      var btns = document.getElementsByTagName("button");
+      for (var i = 0; i < btns.length; i++) {//这层for循环是个每一个btns加点击事件的
+        btns[i].onclick = function () {
+          for (var i = 0; i < btns.length; i++) {//先清除所有的样式
+            btns[i].style.color = "";
+          }
+          this.style.color = "red";//给当前那个元素加样式
+        };
+      }
+    </script>
+  </body>
+</html>

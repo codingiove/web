@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+  </head>
+  <body>
+    <div>1</div>
+    <div>2.5</div>
+    <div>3.5</div>
+    <script>
+      var arr = ["red", "green", "blue"];
+      var sum = 0;
+      $("div").each(function (i, item) {
+        $(item).css("color", arr[i]);
+        sum += parseFloat($(item).text());
+      });
+      console.log(sum);
+    </script>
+  </body>
+</html>

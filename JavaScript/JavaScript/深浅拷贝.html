@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>深浅拷贝</title>
+  </head>
+  <body>
+    <script>
+      // Object.assign()
+      // 如果数组或对象只一级 Object.assign 那就是深拷贝
+      // 如果数组或对象有多级(多级:就是一个对象里还有一个对象,数组也一样) 那么 Object.assign 就是浅拷贝
+      var OBJ_A = { name: "OBJ_A", age: 15, copy: "拷贝的内容" };
+      var OBJ_B = { name: "OBJ_B", age: "yy55221100" };
+      // 把 OBJ_B 拷贝到 OBJ_A 名字一样下面的会覆盖上面的
+      Object.assign(OBJ_A, OBJ_B);
+      console.log("OBJ_A:", OBJ_A); // OBJ_A: {name: "OBJ_B", age: "yy55221100", copy: "拷贝的内容"}
+      console.log("OBJ_B:", OBJ_B); // OBJ_B: {name: "OBJ_B", age: "yy55221100"}
+
+      // JSON.parse(JSON.stringify()) 是深拷贝,但不支持 function,不能拷贝函数
+      var OBJ_JSON = {
+        name: "json",
+        age: 88,
+        multistage: { name: "multistage_OBJ" },
+        fun: () => {
+          console.log("1111");
+        },
+      };
+      var newOBJ_JSON = JSON.parse(JSON.stringify(OBJ_JSON));
+      OBJ_JSON.name = "778899";
+      OBJ_JSON.multistage.name = "new_OBJ";
+      console.log(OBJ_JSON); // {name: "778899", age: 88, multistage:{name: "new_OBJ"}, fun: ƒ }
+      console.log(newOBJ_JSON); // {name: "json", age: 88, multistage: {name: "multistage_OBJ"}}
+
+      // 自己封装深拷贝
+      var Encapsulation = {
+        name: "encapsulation值",
+        skin: ["red", "pink"],
+        children: {
+          childName: "xxx",
+        },
+        fun: () => {
+          console.log(this);
+          console.log("Name:" + this.name, "Skin:" + this.skin);
+        },
+      };
+      // 把 obj 里的内容拷贝到 dest 中
+      function deep(dest, obj) {
+        // 创建一个新的对象
+        var new_obj = dest;
+        for (let key in obj) {
+          // 判断值是不是一个对象( 键:children: 值:{childName: "xxx" })
+          if (typeof obj[key] === "object") {
+            //  constructor可以更精准判断类型,如果(值)是一个数组就赋值给 new_obj 对象 { skin: [] }
+            new_obj[key] = obj[key].constructor === Array ? [] : {};
+            // 第一次是空对象,第二次对象里就有值了,就不在是空对象了
+            deep(new_obj[key], obj[key]); // 递归
+          } else {
+            // 如果值不是对象,就赋值给新创建的对象
+            new_obj[key] = obj[key];
+            // new_obj[key] = {}   obj[key] = { name: "encapsulation" }  name: "encapsulation"赋值给 new_obj 对象
+          }
+        }
+        // 返回新对象
+        return new_obj;
+      }
+      let ret = deep({}, Encapsulation);
+      console.log("deep", ret);
+
+
+
+      // 这里肯定有人不理解,obj[key]取到的是值,但它的键是怎么来的呢 ?
+      let oBJ = {
+        name: "小四",
+      };
+      let copy = {};
+      for (let key in oBJ) {
+        copy[key] = oBJ[key];
+      }
+      console.log("copy:", copy); // copy: {name: "小四"}
+      // 这个 copy[key] 是一个空对象,对吧
+      // 注意这行代码: let key in oBJ
+      // copy[key],它这里的 [key] 拿到的是 oBJ 里面的 key,oBJ里面的 key 就是 name
+      // 也就是 copy["name"],但 copy 对象里没有,他就会添加一个 name 属性
+      // 而 oBJ[key] 里有就直接获取值
+      // copy["name"] = "小四"
+    </script>
+  </body>
+</html>

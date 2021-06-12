@@ -1,0 +1,9 @@
+<button bindtap="addnumberA">Monitor</button>
+<text>{{numberA}}</text>
+<view class="nav">{{message}}</view>
+<view>父传的值:{{lwh}}</view>
+<button size="mini" bindtap="updata">子传父</button>
+<view>
+		<!-- 默认占位符 -->
+		<slot></slot>
+</view>

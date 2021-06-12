@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>开关</title>
+  </head>
+  <style>
+    * {
+      /* 初始化 取消页面的内外边距 */
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    label {
+      overflow: hidden;
+      position: relative;
+      width: 150px;
+      height: 76px;
+      border-radius: 38px;
+      background-color: #e9e9e9;
+    }
+    /* 现在复选框还在我们得把他隐藏起来 */
+    label input {
+      visibility: hidden;
+      cursor: pointer;
+    }
+    label input::after {
+      visibility: visible;
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background-color: #fff;
+      transition: all 0.5s;
+    }
+
+    label input:checked::after {
+      transform: translateX(74px);
+    }
+
+    label input::before {
+      visibility: visible;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: all 0.5s;
+    }
+
+    label input:checked::before {
+      background-color: #65c466;
+    }
+  </style>
+  <body>
+    <label for="switch">
+      <input type="checkbox" name="switch" id="switch" />
+    </label>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .tab_list {
+        background-color: rgb(141, 136, 136);
+        height: 50px;
+        color: rgb(0, 0, 0);
+        line-height: 50px;
+        font-size: 20px;
+      }
+      .tab_list li {
+        width: 100px;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+      }
+      .current {
+        background-color: #e40d0d;
+      }
+      .tab_con div {
+        display: none;
+      }
+      .show {
+        display: block !important;
+      }
+    </style>
+    <div class="top">
+      <div class="tab_list">
+        <ul>
+          <li class="current">手机</li>
+          <li>鞋子</li>
+          <li>售后</li>
+          <li>水果</li>
+          <li>游戏</li>
+          <li>游戏</li>
+        </ul>
+      </div>
+      <div class="tab_con">
+        <div class="show">1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+      </div>
+    </div>
+    <script>
+      var lis = document.querySelector(".tab_list").querySelectorAll("li");
+      var items = document.querySelector(".tab_con").querySelectorAll("div");
+      //第一种写法
+      for (var i = 0; i < lis.length; i++) {
+        //创建一个 index 然后给每一个 li 设置index而它的值由i来动态的决定,这样创建页面上显示 index
+        lis[i].setAttribute("index", i);
+        lis[i].onclick = function () {
+          for (var i = 0; i < lis.length; i++) {
+            lis[i].className = "";
+            items[i].className = "";
+          }
+          this.className = "current";
+          var index = this.getAttribute("index"); //获取当前点击的 index 值
+          items[index].className = "show"; //[index] 这个index是局部的所以可以直接拿到
+          //↑ 这里不能写死,当我 index 点了那个就把它的值传给我 items
+          //当我点击手机,手机的 index值是0,所以就把 items[0]传给我,这样就可以更上面同步
+        };
+      }
+    </script>
+  </body>
+</html>

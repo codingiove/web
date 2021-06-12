@@ -1,0 +1,149 @@
+page {
+  padding-bottom: 90rpx;
+}
+.cart_content .content_title { /**/
+  padding: 20rpx;
+  font-size: 40rpx;
+  border-top: 1px solid #f7544b;
+  border-bottom: 1px solid #f7544b;
+}
+
+.user_info_row { /*1*/
+  display: flex;
+  padding: 20rpx;
+}
+
+.user_info {/*1*/
+  flex: 6;
+}
+
+.user_info view {/*1*/
+  font-size: 29rpx;
+}
+
+.telNumber {/*1*/
+  flex: 3;
+  text-align: right;
+  font-size: 29rpx;
+}
+
+.cart_main .cart_item { /**/
+  display: flex;
+}
+
+.total_price_wrap .total_pricer_text { /**/
+  padding-right: 15rpx;
+  color: #f7544b;
+  font-size: 30rpx;
+}
+.total_price_wrap .freight{/**/
+  font-size: 28rpx;
+  text-align: right;
+  padding-right: 15rpx;
+}
+
+.cart_main { /**/
+  border-bottom: 1px solid #ccc;
+}
+
+.cart_item { /**/
+  margin: 10rpx 0;
+}
+
+.cart_item .item_checkbox {/**/
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart_item .item_image {/**/
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart_item .item_image image {/**/
+  width: 80%;
+}
+
+.cart_item .item_commodity {/**/
+  flex: 4;
+}
+
+.cart_item .item_commodity .commodity_name {/**/
+  overflow: hidden;
+  /*自动隐藏文字*/
+  text-overflow: ellipsis;
+  /*文字隐藏后添加省略号*/
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /*想要显示的行数*/
+  -webkit-box-orient: vertical;
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+}
+
+.commodity_wrap { /**/
+  display: flex;
+  justify-content: space-between;
+}
+
+.commodity_wrap .commodity_price { /**/
+  font-size: 34rpx;
+  color: #f7544b;
+}
+
+.commodity_checkbox { /**/
+  display: flex;
+  padding-right: 20rpx;
+}
+
+.commodity_checkbox .commodity_sub,/**/
+.commodity_add {
+  width: 55rpx;
+  height: 55rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+.commodity_checkbox .commodity_cont { /**/
+  padding: 0 20rpx;
+  justify-content: center;
+  align-items: center;
+  line-height: 54rpx;
+}
+
+.footer_tool { /**/
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+}
+
+.tool_price_wrap {/**/
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+}
+
+.tool_price_wrap {/**/
+  flex: 4;
+  text-align: right;
+
+}
+
+.pay_wrap { /**/
+  flex: 2;
+  color: white;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7544b;
+}

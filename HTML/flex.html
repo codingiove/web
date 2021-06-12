@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>felx</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul {
+      width: 800px;
+      border: 10px solid red;
+      /* 将 ul 设置为弹性容器 */
+      display: flex;
+  
+     flex-direction 指定容器中弹性元素的排列方式
+      可选值:
+            row 默认值,弹性元素在容器中水平居中
+	        row-reverse 反向水平居中排列
+	        column 自上向下排列
+	        column-reverse 自下向上排列              
+                
+                
+     flex-wrap 设置弹性元素是否在弹性容器中自动换行   
+      可选值:
+            nowrap 默认值,元素不会自动换行
+            wrap 元素沿着辅轴方向自动换行
+      
+      
+     justify-content 如何分配主轴上的空白空间（主轴上的元素如何排列） 
+      可选值:
+            flex-start 元素沿着主轴起边排列
+            flex-end 元素沿着主轴终边排列
+            center 元素居中排列
+            space-around 空白分布到元素两侧
+            space-between 空白均匀分布到元素间
+            space-evenly 空白分布到元素的单侧
+
+
+      align-items 元素在辅轴上如何对齐
+       可选值:
+            stretch默认值，将元素的长度设置为相同的值
+            flex-start 元素不会拉伸，沿着辅轴起边对齐
+            flex-end 沿着辅轴的终边对齐
+            center居中对齐
+            baseline基线对齐
+      
+    }
+    ul li {
+      width: 100px;
+      font-size: 50px;
+      text-align: center;
+      line-height: 100px;
+      background-color: #bfe;
+      /* 弹性元素属性 */
+      order:1 决定弹性元素的排列顺序
+      flex:1 根据父元素宽度来进行均等分
+    }
+    ul li:nth-of-type(2) {
+      background-color: pink;
+      order:2;
+      flex:2;
+      color:var(--color);
+    }
+    ul li:nth-of-type(3) {
+      background-color: orange;
+      order:3;
+      flex:3;
+    }
+    html{
+      --color:#bef
+    }
+  </style>
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </body>
+</html>

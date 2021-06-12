@@ -1,0 +1,10 @@
+.input {
+  border: 1px solid #000000;
+}
+.a1 {
+  font-size: 20px;
+}
+.a2 {
+  font-size: 40rpx;
+}
+@import "/pages/style/Global.wxss";

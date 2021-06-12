@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+  </head>
+  <style>
+    li,
+    a {
+      list-style: none;
+      text-decoration: none;
+      color: red;
+      text-align: center;
+    }
+    .content ul {
+      width: 320px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      float: left;
+    }
+    .content ul li {
+      background-color: saddlebrown;
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      border: 2px solid pink;
+      position: relative;
+    }
+    /* .current {
+      background-color: purple !important;
+    } */
+    .bank div {
+      position: absolute;
+      left: 115px;
+      display: none;
+    }
+    .content ul li:hover {
+      background-color: purple;
+    }
+    .show {
+      display: block !important;
+    }
+  </style>
+  <body>
+    <div class="content">
+      <ul>
+        <li class="current"><a href="JavaScript:;">鞋子</a></li>
+        <li><a href="JavaScript:;">篮球</a></li>
+        <li><a href="JavaScript:;">陀螺</a></li>
+        <li><a href="JavaScript:;">手套</a></li>
+      </ul>
+      <div class="bank">
+        <div class="show">
+          <img
+            src="https://gma.alicdn.com/bao/uploaded/i2/53495785/O1CN01oymkd11sbZpwTXFOc_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            src="https://gma.alicdn.com/bao/uploaded/i3/55304230/O1CN01GOUWs61h7Nwi3ogih_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            src="https://gma.alicdn.com/bao/uploaded/i4/99165358/O1CN018OU6Tw1pS0i6imaNz_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            src="https://gma.alicdn.com/bao/uploaded/i4/46277749/O1CN01Arkozx2775i3jj8ui_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      $(".content ul li").mouseover(function () {
+        //得到当前的 li 索引号 ↓
+        let index = $(this).index();
+        //让右侧对应的img显示出来 ↓
+        $(".bank div").eq(index).show();
+        //其他的隐藏 ↓
+        $(".bank div").eq(index).siblings().hide();
+      });
+
+      /* var li = document.querySelector(".content").querySelectorAll("li");
+      var items = document.querySelector(".bank").querySelectorAll("div");
+      for (var i = 0; i < li.length; i++) {
+        li[i].setAttribute("index", i);
+        li[i].onclick = function () {
+          for (var i = 0; i < li.length; i++) {
+            li[i].className = "";
+            items[i].className = "";
+          }
+          this.className = "current";
+          var index = this.getAttribute("index");
+          items[index].className = "show"
+        };
+      } */
+    </script>
+  </body>
+</html>

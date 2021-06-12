@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 方法：改变this指向
+         区别：传参列表不同
+	1. call  (this,有几个实参就写几个形参)
+  2. apply (this,[]要加一个括号)
+     Person.call(this, name, age, sex, tel, grade);
+    这里的this指向Person因为是Person调用的this
+    bind()传参的方式与call()相同
+  --></head>
+  <body>
+    <script>
+      function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      }
+      function Student(name, age, sex, tel, grade) {
+        Person.call(this, name, age, sex, tel, grade);
+        this.tel = tel;
+        this.grade = grade;
+      }
+      var student = new Student("卢本伟", 1.88, 60, "牛逼", 5);
+      console.log(JSON.stringify(student));//{"name":"卢本伟","age":1.88,"sex":60,"tel":"牛逼","grade":5}
+
+      var persion1 = {
+        name: "小王",
+        gender: "男",
+        age: 24,
+        say: function(school, grade) {
+        console.log( this.name +" , " + this.gender + " ,今年" + this.age + " ,在" + school + "上" + grade );
+        //小红 ,女 ,今年18 ,在实验小学上六年级
+        }
+      };
+      var persion2 = {
+        name: "小红",
+        gender: "女",
+        age: 18
+      };
+      persion1.say.call(persion2, "实验小学", "六年级");
+      //用 persion1里的方法实现自己跟他一样的功能
+    </script>
+  </body>
+</html>

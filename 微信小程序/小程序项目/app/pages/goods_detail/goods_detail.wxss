@@ -1,0 +1,106 @@
+/* page {padding-bottom: 80rpx;} */
+
+.goods_detail swiper {
+  height: 65vw;
+  text-align: center;
+}
+
+.goods_detail swiper image {
+  width: 60%;
+}
+
+.detail_price {
+  font-size: 40rpx;
+  color: #f7544b;
+  margin-left: 20rpx;
+  font-weight: bold;
+}
+
+.detail_name_row {
+  display: flex;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.detail_name_row .detail_name {
+  flex: 5;
+  font-size: 30rpx;
+  margin: 0 20rpx;
+}
+
+.detail_name_row .detail_collect {
+  text-align: center;
+  border-left: 1rpx solid #000;
+  padding-left: 50rpx;
+  padding: 0 40rpx;
+}
+.detail_collect .icon-shoucang1{
+  color: #f7544b;
+}
+
+.goods_info .goods_info_title {
+  font-size: 32rpx;
+  color: #f7544b;
+  font-weight: 600;
+  padding: 20rpx;
+  background-color: white;
+  border-top: 10rpx solid #eee;
+  border-bottom: 10rpx solid #eee;
+}
+
+.goods_info_content {
+  margin-top: 10rpx;
+}
+
+.btm_tool {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.btm_tool .tool_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /*改成上下一行*/
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  position: relative;
+}
+
+.btm_tool .tool_item button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+
+
+}
+
+.btm_tool .btn_cart {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  background-color: #ffa500;
+}
+
+.btm_tool .btn_buy {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  background-color: #eb4450;
+
+}

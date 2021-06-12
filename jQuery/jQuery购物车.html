@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>购物车</title>
+    <script src="jQuery.js"></script>
+    <style>
+      table {
+        width: 50%;
+        position: relative;
+        margin: 30px auto;
+        border-collapse: collapse;
+        border: 1px solid gray;
+      }
+      th {
+        background: cornflowerblue;
+        height: 2.5em;
+      }
+      .tdone {
+        width: 10%;
+      }
+      .tdtwo {
+        width: 20%;
+      }
+      .tdthree {
+        width: 20%;
+      }
+      .tdfour {
+        width: 20%;
+        display: table-cell;
+      }
+      .tdfive {
+        width: 20%;
+      }
+      .tdsix {
+        width: 10%;
+      }
+      td {
+        height: 2em;
+        text-align: center;
+        border: 1px solid #ccc;
+      }
+      .num {
+        display: inline-block;
+        width: 3em;
+      }
+      input {
+        height: 2em;
+      }
+      .talast {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th class="tdone">序号</th>
+          <th class="tdtwo">商品名称</th>
+          <th class="tdthree">数量</th>
+          <th class="tdsix">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="trclass">
+          <td class="tdone xuhao">1</td>
+          <td class="tdtwo">水煮鱼</td>
+          <td class="tdthree">
+            <span class="jiajie">
+              <input type="button" value="-" class="jj" />
+              <span class="num">0</span>
+              <input type="button" value="+" class="add" />
+                <span class="tdfour">单价：40</span>
+                <span class="tdfive">小计：0</span>
+          </td>
+          <td class="tdsix"><button class="del">删除</button></td>
+        </tr>
+        <tr class="trclass">
+          <td class="tdone xuhao">2</td>
+          <td class="tdtwo">水煮鱼</td>
+          <td class="tdthree">
+            <span class="jiajie">
+              <input type="button" value="-" class="jj" />
+              <span class="num">0</span>
+              <input type="button" value="+" class="add" />
+                <span class="tdfour">单价：10.50</span>
+                <span class="tdfive">小计：0</span>
+          </td>
+          <td class="tdsix"><button class="del">删除</button></td>
+        </tr>
+        <tr class="trclass">
+          <td class="tdone xuhao">3</td>
+          <td class="tdtwo">水煮鱼</td>
+          <td class="tdthree">
+            <span class="jiajie">
+              <input type="button" value="-" class="jj" />
+              <span class="num">0</span>
+              <input type="button" value="+" class="add" />
+                <span class="tdfour">单价：40</span>
+                <span class="tdfive">小计：0</span>
+          </td>
+          <td class="tdsix"><button class="del">删除</button></td>
+        </tr>
+
+        <tr class="trclass">
+          <td class="tdone xuhao">4</td>
+          <td class="tdtwo">水煮鱼</td>
+          <td class="tdthree">
+            <span class="jiajie">
+              <input type="button" value="-" class="jj" />
+              <span class="num">0</span>
+              <input type="button" value="+" class="add" />
+                <span class="tdfour">单价：20</span>
+                <span class="tdfive">小计：0</span>
+          </td>
+          <td class="tdsix"><button class="del">删除</button></td>
+        </tr>
+        <tr class="trclass">
+          <td class="tdone xuhao">5</td>
+          <td class="tdtwo">水煮鱼</td>
+          <td class="tdthree">
+            <span class="jiajie">
+              <input type="button" value="-" class="jj" />
+              <span class="num">0</span>
+              <input type="button" value="+" class="add" />
+                <span class="tdfour">单价：120</span>
+                <span class="tdfive">小计：0</span>
+          </td>
+          <td class="tdsix">
+            <button class="del">删除</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="6" ; class="talast">
+            <span>商品一共 <input type="text" class="goods_num" value="0"> 件; 共计花费
+              <span class="pricetal">0</span> 元; 其中最贵的商品单价是
+              <span class="pricest">0</span> 元</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      $(".add").click(function () {
+        var n = $(this).siblings(".num").text();
+        n++;
+        $(this).siblings(".num").text(n);
+        var p = $(this).siblings(".tdfour").text();
+        p = p.substr(3).trim()
+        $(this).siblings(".tdfive").text(p * n)
+        sun()
+      });
+      $(".jj").click(function () {
+        var n = $(this).siblings(".num").text();
+        if (n == 0) {
+          return;
+        }
+        n--;
+        $(this).siblings(".num").text(n);
+        var p = $(this).siblings(".tdfour").text();
+        p = p.substr(3).trim()
+        $(this).siblings(".tdfive").text(p * n)
+        sun()
+      });
+      function sun (){
+        var sum = 0;//总数量
+        var totle = 0;//总价格
+        $(".num").each(function(i,item){
+          sum += $(item).text()
+        })
+        $(".goods_num").text(sum)
+      }
+      $(".del").click(function () {
+        $(this).parents(".trclass").remove()
+        })
+    </script>
+  </body>
+</html>

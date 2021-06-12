@@ -1,0 +1,22 @@
+{
+  "name": "webpack_config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config lwh.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "browserslistrc": "^1.0.0",
+    "css-loader": "^5.2.0",
+    "postcss": "^8.2.9",
+    "postcss-cli": "^8.3.1",
+    "postcss-loader": "^5.2.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0"
+  }
+}

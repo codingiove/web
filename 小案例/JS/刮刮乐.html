@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #canvas {
+        border: 2px solid;
+        position: relative;
+        z-index: 99;
+      }
+      .prize {
+        position: absolute;
+        font-size: 24px;
+        color: red;
+        top: 5%;
+        left:5%;
+        transform: translate(5%,5%);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="150"></canvas>
+    <div class="prize">谢谢惠顾</div>
+    <script>
+      var _canvas = document.getElementById("canvas");
+      var ctx = _canvas.getContext("2d");
+      ctx.rect(0, 0, 300, 150); // 坐标(左边,上边,宽,高)
+      ctx.fillStyle = "#ccc"; //设置颜色
+      ctx.fill(); //填充颜色
+      _canvas.onmousedown = function () {
+        _canvas.onmousemove = function (e) {
+          ctx.clearRect(e.clientX, e.clientY, 24, 24);
+        };
+      };
+      _canvas.onmouseup = function () {
+        _canvas.onmousemove = null;
+      };
+      var arr = ["一个亿", "一等奖", "一万块钱", "谢谢惠顾"];
+      var prize = document.querySelector(".prize");
+      //random 拿到的都是0点几所以,0.5*3= 1.5,Math.floor像下取整
+      var i = Math.floor(Math.random() * arr.length);
+      console.log(i);
+      prize.innerHTML = arr[i];
+    </script>
+  </body>
+</html>

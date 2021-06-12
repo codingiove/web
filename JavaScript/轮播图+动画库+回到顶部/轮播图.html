@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css.css" />
+    <script src="./Animation.js"></script>
+    <script src="./index.js"></script>
+  </head>
+  <style>
+    li {
+      list-style: none;
+    }
+    .banner {
+      width: 590px;
+      margin: 0 auto;
+      height: 471px;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner ul {
+      width: 600%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .banner ul li {
+      float: left;
+    }
+    .zuo {
+      color: #000000;
+      font-size: 50px;
+      cursor: pointer;
+      width: 81px;
+      height: 40px;
+      position: relative;
+      z-index: 2;
+      top: 45%;
+      display: block;
+    }
+    .you {
+      color: #000000;
+      font-size: 50px;
+      cursor: pointer;
+      width: 81px;
+      height: 40px;
+      position: relative;
+      z-index: 3;
+      top: 36%;
+      left: 94%;
+      display: block;
+    }
+    .yuq {
+      width: 140px;
+      height: 30px;
+      background-color: pink;
+      position: absolute;
+      left: 42.14%;
+      bottom: 0;
+    }
+    .yuq ol li {
+      border: 3px solid rgb(255, 255, 255);
+      background-color: white;
+      border-radius: 50px;
+      width: 7px;
+      display: inline-block;
+      height: 7px;
+      margin-right: 5px;
+      cursor: pointer;
+      margin-top: 7.3%;
+      margin-left: 13px;
+    }
+    .current {
+      background-color: red !important;
+      border-color: red !important;
+    }
+  </style>
+  <body>
+    <div class="banner">
+      <span class="zuo"><</span>
+      <ul>
+        <li>
+          <a href="JavaScript:;"><img src="./1.jpg" alt="" class="tupd" /></a>
+        </li>
+        <li>
+          <a href="JavaScript:;"><img src="./2.jpg" alt="" /></a>
+        </li>
+        <li>
+          <a href="JavaScript:;"><img src="./3.jpg" alt="" /></a>
+        </li>
+        <li>
+          <a href="JavaScript:;"><img src="./4.jpg" alt="" /></a>
+        </li>
+      </ul>
+      <span class="you">></span>
+      <div class="yuq">
+        <ol class="circle"></ol>
+      </div>
+    </div>
+  </body>
+</html>

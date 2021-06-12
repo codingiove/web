@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件代理</title>
+    <script src="./vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrap" @click="onClick">
+        <div v-for="item in list" :key="item.id" :id="item.id">
+          <span>{{item.name}}</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            list: [
+              { id: 1, name: "1" },
+              { id: 2, name: "2" },
+              { id: 3, name: "3" },
+            ],
+          };
+        },
+        methods: {
+          onClick(e) {
+            console.log(e.target.getAttribute("id"));
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

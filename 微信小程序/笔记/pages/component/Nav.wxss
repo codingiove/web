@@ -1,0 +1,9 @@
+.nav {
+  font-size: 20px;
+  margin-top: 24px;
+  border: 5rpx solid currentColor;
+  color: pink;
+}
+view {
+  padding: 10px;
+}

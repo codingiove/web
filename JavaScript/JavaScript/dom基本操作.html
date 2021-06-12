@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div>
+      //增 // var div = document.createElement('div')//创建元素节点 // var text
+      = document.createTextNode('创建文本')//创建文本节点 //插 // var div =
+      document.getElementsByTagName('div')[0]//获取元素的第一位 //
+      div.appendChild(text) //删 // var div =
+      document.getElementsByTagName('div')[0]//获取元素的第一位 //
+      父节点.removeChild(子节点); //复
+      //div.cloneNode();括号里不带参数和带参数false，效果是一样的. /*
+      nodeType属性 这里讲一下nodeType属性. nodeType == 1
+      表示的是元素节点（标签）.记住：在这里，元素就是标签. nodeType == 2
+      表示是属性节点. nodeType == 3 是文本节点. */
+    </div> -->
+    <!-- 父节点 -->
+    <div class="f1">
+      <div class="f2">
+        <span class="ewm">x</span>
+      </div>
+    </div>
+    <!-- 子节点 -->
+    <!-- <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul> -->
+
+    <ul>
+      <li>第一名</li>
+      <li>2</li>
+      <li>3</li>
+      <li>最后一名</li>
+    </ul>
+
+    <a href="">我是a</a>
+    <div class="xd">我是div</div>
+    <span>我是span</span>
+
+    <ol>
+      <li>111</li>
+    </ol>
+    <script>
+      /*
+     兄弟元素: nextElementSibling(下一个兄弟节点)(ie9才支持)
+              previousElementSibling(上一个兄弟节点)
+     父节点:  parentNode(得到的是最近的一个父节点,也就是它的上一层 )
+     子节点:  childNodes(所有的子节点包括文本节点) 不提倡这种方法
+             children(用这个)
+      */
+      //父节点的方法
+      var ewm = document.querySelector(".ewm");
+      console.log(ewm.parentNode);
+      console.log("-------------");
+      //子节点的方法
+      // var ul = document.querySelector("ul")
+      // console.log(ul.childNodes);
+      // console.log(ul.children);
+      // console.log("-------------");
+
+      //获取第一个子节点和最后一个(ie9才支持)
+      //firstElementChild,lastElementChild
+      // var snv = document.querySelector("ul")
+      // console.log(snv.firstElementChild);
+      // console.log(snv.lastElementChild);
+      //(推荐这种写法)
+      var snv = document.querySelector("ul");
+      console.log(snv.children[0]);
+      console.log(snv.children[snv.children.length - 1]);
+      console.log("------------------");
+      //我上面4个li,但我访问时要写[3]因为是[0-1-2-3]从0开始,
+      //但他的长度是 4,那我就减去它的长度得到的也就是最后一个元素
+      //它的个数 -1 也就是最后一个的索引号
+
+      //兄弟节点
+      var xd = document.querySelector(".xd");
+      console.log(xd.nextElementSibling);
+      console.log(xd.previousElementSibling);
+
+      //创建节点
+      var ol = document.querySelector("ol");
+      var li = document.createElement("li");
+      // ol.appendChild(li)//在ol后面添加 li
+      ol.insertBefore(li, ol.children[0])//在ol前面添加 li
+      //删除
+      ol.removeChild(ol.children[0])
+    </script>
+  </body>
+</html>

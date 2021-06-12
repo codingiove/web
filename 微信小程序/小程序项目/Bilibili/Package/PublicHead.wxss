@@ -1,0 +1,37 @@
+@import "../icon/iconfont.wxss";
+
+.my_title {
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+  background-color: white;
+}
+
+.logo {
+  font-size: 60rpx;
+  color: #fb7299;
+  flex: 7;
+}
+
+.search {
+  flex: 2;
+  font-size: 45rpx;
+  color: #c6c9c5;
+  text-align: center;
+}
+
+.user {
+  flex: 2;
+  font-size: 50rpx;
+  color: #c6c9c5;
+  text-align: center;
+}
+
+.download {
+  flex: 3;
+  padding: 10rpx;
+  background-color: pink;
+  color: white;
+  border-radius: 10rpx;
+  text-align: center;
+}

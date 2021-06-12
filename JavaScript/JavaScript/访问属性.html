@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //普通访问
+      var obj = {
+        name: "abc"
+      };
+      console.log(obj.name); //写起方便
+
+      var obj2 = {
+        name: "abc"
+      };
+      console.log(obj["name"]); //运行起来它更快一些
+
+      let obj3 = {
+        wife1: { name: "1" },
+        wife2: { name: "2" },
+        wife3: { name: "3" },
+        wife4: { name: "4" },
+        sayWife: function(num) {     //字符串加啥都等于字符串
+          return this["wife" + num]; //我输入1(它就会拼接成 wife1,就会调用 wife1对象)
+        }
+      };
+    </script>
+  </body>
+</html>

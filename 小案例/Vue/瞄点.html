@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zhw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="vue.js"></script>
+  </head>
+  <style>
+    .list {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 20px;
+      background: pink;
+    }
+    ul {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      list-style: none;
+    }
+    li {
+      float: left;
+      width: 20%;
+      font-size: 30px;
+    }
+    li > span {
+      cursor: pointer;
+    }
+    .result {
+      width: 100%;
+      height: 500px;
+      overflow: scroll;
+    }
+    .scroll-item {
+      width: 100%;
+      height: 500px;
+      margin-top: 20px;
+      background: yellow;
+    }
+    .scroll-item > span {
+      font-size: 40px;
+    }
+    .scroll-item:first-child {
+      margin-top: 0;
+    }
+    .scroll-item:last-child {
+      height: 500px;
+    }
+  </style>
+
+  <body>
+    <div id="app">
+      <div class="list">
+        <ul>
+          <li v-for="(item,index) in title_list" :key="index">
+            <span
+              :style="{color: activeStep === index ? '#673AB7' : '#000000'}"
+              @click="jump(index)"
+            >
+              {{item.title}}
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="result" @scroll="onScroll">
+        <div class="scroll-item"><span>一</span></div>
+        <div class="scroll-item"><span>二</span></div>
+        <div class="scroll-item"><span>三</span></div>
+        <div class="scroll-item"><span>四</span></div>
+      </div>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            activeStep: 0,
+            title_list: [
+              { title: "第一" },
+              { title: "第二" },
+              { title: "第三" },
+              { title: "第四" },
+            ],
+          };
+        },
+        methods: {
+          jump(index) {
+            var items = document.querySelectorAll(".scroll-item");
+            for (var i = 0; i < items.length; i++) {
+              if (index === i) {
+                items[i].scrollIntoView({
+                  block: "center", // 默认跳转到顶部
+                  behavior: "smooth", // 滚动的速度
+                });
+              }
+            }
+          },
+          onScroll(e) {
+            let scrollItems = document.querySelectorAll(".scroll-item");
+            // 每次减去一个 scroll-item div
+            for (let i = scrollItems.length - 1; i >= 0; i--) {
+              // 判断滚动条滚动距离是否大于 当前滚动项可滚动距离
+              let judge = e.target.scrollTop >=  scrollItems[i].offsetTop - scrollItems[0].offsetTop;
+              // 👆 每一个减去第一个
+              if (judge) {
+                this.activeStep = i;
+                break;
+              }
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

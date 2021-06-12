@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "MyTop":"/Package/PublicHead"
+  },
+  "navigationBarTitleText": "视频详情页",
+  "navigationBarTextStyle": "white"
+}

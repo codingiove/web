@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+  <script>
+  /* 
+
+  先执行 同步任务 在执行 微任务,最后执行宏任务
+  同步任务有: console.log(3), console.log(7) , console.log(4)
+  宏:[定时器(console.log(5))]
+  微:[1,2]
+
+  结果:3,7,4,1,2,5
+  
+    */
+  console.log(1);
+  let first = () => new Promise((resolve, reject) => {
+      console.log(3);
+      let a = new Promise((resolve, reject) => {
+        console.log(7);
+        setTimeout(() => {
+          console.log(5);
+          resolve(6); // Promise 的状态只能改变一次
+        }, 0);
+        resolve(1); // 因为 a Promise立马执行了 resolve,此时 pending 变成了 resolve
+      });
+      resolve(2);
+      a.then((result) => { // a.then等着 a Promise 的结果
+        console.log(result); // 1
+      });
+    });
+    first().then((result) => {
+    console.log(result); // 2 
+  });
+  console.log(4);
+  </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<view class="cart">
+	<!-- 收件地址 -->
+	<view class="ShippingAddress" wx:if="{{!address.userName}}">
+		<button type="primary" plain bindtap="GetDeliveryAddress">添加收货地址</button>
+	</view>
+	<view wx:else>
+		<view class="user_info_row">
+			<view class="user_info">
+				<view>收货人: {{address.userName}}</view>
+				<view>{{address.all}}</view>
+			</view>
+			<view class="telNumber">{{address.telNumber}}</view>
+		</view>
+	</view>
+	<!-- 购物车内容 -->
+
+		<view class="cart_content">
+			<view class="content_title">购物车</view>
+			<block wx:for="{{cart}}" wx:key="index">
+				<view class="cart_main">
+					<view class="cart_item">
+						<!-- 复选框 -->
+						<view class="item_checkbox" bindtouchend="itemChend" data-id="{{item.goods_id}}">
+							<checkbox-group>
+								<checkbox checked="{{item.checkbox}}"></checkbox>
+							</checkbox-group>
+						</view>
+						<!-- 图片 -->
+						<view class="item_image">
+							<image src="{{item.goods_small_logo}}" mode="widthFix" />
+						</view>
+						<!-- 商品信息 -->
+						<view class="item_commodity">
+							<view class="commodity_name">{{item.name}}</view>
+							<view class="commodity_wrap">
+								<view class="commodity_price">¥ {{item.goods_price}}</view>
+								<view class="commodity_checkbox">
+									<view class="commodity_sub" bindtap="subnum" data-id="{{item.goods_id}}">-</view>
+									<view class="commodity_cont">{{item.num}}</view>
+									<view class="commodity_add" bindtap="addnum" data-id="{{item.goods_id}}">+</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	<view wx:if="{{!cart.length > 0}}" class="kong">
+		<image mode="widthFix" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595833777413&di=b00fd528c3e8259262f0d326d4f6dab5&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fe1b1467beea0a9c7d6a56b32bac6d7e5dcd914f7c3e6-YTwUd6_fw658"></image>
+	</view>
+	<!-- 底部工具栏 -->
+	<view class="footer_tool">
+		<!-- 全选 -->
+		<view class="tool_price_wrap">
+			<checkbox-group bindtouchend="allchend">
+				<checkbox checked="{{allcheckbox}}">全选</checkbox>
+			</checkbox-group>
+		</view>
+		<!-- 总价格 -->
+		<view class="total_price_wrap">
+			<view class="total_price">
+				合计:<text class="total_pricer_text">¥{{totalprice}}</text>
+			</view>
+			<view class="freight">包含运费</view>
+		</view>
+		<!-- 结算 -->
+		<view class="pay_wrap" bindtap="Settlement">结算({{totalNum}})</view>
+	</view>
+</view>

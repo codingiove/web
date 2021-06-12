@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+  </head>
+  <body>
+    <ul>
+      <li>原生li</li>
+      <li>原生li2</li>
+    </ul>
+    <script>
+      //创建
+      var li = $("<li>我是jQuery创建的</li>");
+      //添加
+      /* 
+      内部添加元素,生成之后,他们是父子关系
+      外部添加元素,生成之后,他们是兄弟关系
+       */
+
+      //内部添加
+      // $("ul").append(li)//添加在元素的最后面,类似于 appendChild
+      // $("ul").prepend(li)//创建在 ul 的前面
+
+      //外部添加
+      // $("ul").after("<div>我是div</div>")//后面
+      // $("ul").before("<div>我是div</div>")//前面
+
+      //删除
+      //$("li").eq(1).remove() //清除当前那个(自杀)
+     $("li").eq(1).empty() //清空了自己的内容,但元素还有
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>加载动画1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .line-container .loading .loading1 {
+        animation: loading1-roat 2s infinite;
+      }
+
+      .line-container .loading .item {
+        stroke: crimson;
+        stroke-dasharray: 100;
+        stroke-width: 10;
+        stroke-linecap: round;
+        fill: none;
+      }
+
+      @keyframes loading1-roat {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="line-container">
+        <div class="loading">
+          <svg class="loading1" width="200" height="200">
+            <!--cx和cy是svg一半的宽高 r是圆的大小-->
+            <circle class="item" cx="100" cy="100" r="60"></circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

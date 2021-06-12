@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box ul {
+        float: left;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul class="left">
+        <li>left内容1</li>
+        <li>left内容2</li>
+        <li>left内容3</li>
+        <li>left内容4</li>
+      </ul>
+      <ul class="right">
+        <li>right内容1</li>
+        <li>right内容2</li>
+        <li>right内容3</li>
+        <li>right内容4</li>
+      </ul>
+    </div>
+    <script>
+      var _left = document.querySelector(".left").childNodes;
+      for (var i = 0; i < _left.length; i++) {
+        _left[i].onclick = function () {
+          document.querySelector(".right").appendChild(this);
+        };
+      }
+    </script>
+  </body>
+</html>

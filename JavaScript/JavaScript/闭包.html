@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闭包</title>
+  </head>
+  <body>
+    <script>
+      var a = 10; // 全局变量
+      function f1() {
+        var b = 10; // 局部变量
+        b++;
+        return b;
+      }
+      console.log(f1()); // 11
+      console.log(f1()); // 11
+      console.log(f1()); // 11
+      // 永远都是 11,局部变量调用完就销毁,每一次执行 f1()函数,都会重新创建 f1函数里面的所有东西
+
+      // 接下来我们用闭包
+      function koko() {
+        var b = 10;
+        function f2() {
+          b++;
+          console.log(b); // 打印变量b的值
+        }
+        // console.log(f2); --->  f2() { b++; }
+        return f2; // 返回 f2 函数体
+      }
+      var f = koko(); // koko()代表函数返回值,而 koko的返回值就是 f2 函数体
+      // var f === f2() { b++; }
+      // console.log(f); --->  f2() { b++; }
+      console.log(f()); // 11
+      console.log(f()); // 12
+      console.log(f()); // 13
+      // 这样就实现了累加的效果,那它是怎么实现的呢 ?
+      // 首先我们都知道局部变量调用完就销毁,而全局变量关闭页面时才销毁,闭包就是借用这种思路
+      // 我们把 f2 函数赋值给了全局变量 f ,这样 koko 这个函数被全局变量引用,那它就不会销毁,而是存在内存中,除非页面关闭
+    </script>
+  </body>
+</html>

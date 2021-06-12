@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- this的作用
+    this可以帮我们简化很多代码。
+    比如xiaoming.name、xiaoming.age可以直接写成this.name、this.age。
+
+    以函数的形式调用时，this永远都是window。比如fun();相当于window.fun();
+    以方法的形式调用时，this是调用方法的对象
+    以构造函数的形式调用时，this是新创建的那个对象
+    使用call和apply调用时，this是指定的那个对象  举个例子 ↓
+    Person.call(this, name, age, sex, tel, grade); 
+    那个对象 Person
+  -->
+
+    <!-- 如果没有人调用那么this指向 Windows -->
+    <script>
+      // let name = "windon的name";
+      // let obj = {
+      //   name: "obj的name",
+      //   say: function func() {
+      //     console.log(this.name);//obj的name
+      //   }
+      // };
+      // obj.say();
+      // var num = 5;
+      // var obj = {
+      //   num: 10,
+      //   a: function() {
+      //     return this.num;
+      //   }
+      // };
+      // var fn = obj.a; //记住了这个没有调用a() ,this指向Windows
+      // console.log(fn()); //5
+
+      console.log(this); //window
+
+      function fn() {
+        console.log(this); //window
+      }
+      fn(); //window.fn === fn()
+
+      setTimeout(function () {
+        console.log(this); //window
+      }, 1000);
+
+      var o = {
+        fun: function () {
+          console.log(this);
+        },
+      };
+      o.fun(); //o
+
+      function Fun() {
+        console.log(this);
+      }
+      var fun = new Fun();
+    </script>
+  </body>
+</html>

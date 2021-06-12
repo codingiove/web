@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .elevator ul {
+      float: left;
+    }
+    .elevator {
+      position: fixed;
+      left: 24px;
+      margin-top: 50px;
+      display: none;
+    }
+    .elevator ul li {
+      width: 100px;
+      height: 50px;
+      border: 1px solid purple;
+      text-align: center;
+      line-height: 50px;
+    }
+    .current {
+      background-color: rebeccapurple;
+    }
+    .shouji {
+      width: 1200px;
+      height: 700px;
+      background-color: rgb(102, 255, 0);
+      margin-left: 300px;
+      margin-top: 50px;
+    }
+    .diannao {
+      width: 1200px;
+      height: 700px;
+      background-color: rgb(112, 0, 112);
+      margin-left: 300px;
+      margin-top: 50px;
+    }
+    .content {
+      float: left;
+    }
+    .dianshi {
+      width: 1200px;
+      height: 700px;
+      background-color: rgb(58, 13, 58);
+      margin-left: 300px;
+      margin-top: 50px;
+    }
+    .dianwan {
+      width: 1200px;
+      height: 1100px;
+      background-color: rebeccapurple;
+      margin-left: 300px;
+      margin-top: 50px;
+    }
+    .banner {
+      height: 700px;
+      width: 1200px;
+      margin: 0 auto;
+      background-color: tomato;
+    }
+    .zut {
+      width: 1200px;
+      height: 500px;
+      margin: 0 auto;
+      background-color: teal;
+      margin-top: 20px;
+    }
+  </style>
+  <body>
+    <div class="elevator">
+      <ul>
+        <li class="current">手机商品</li>
+        <li>电脑商品</li>
+        <li>电视商品</li>
+        <li>电玩商品</li>
+      </ul>
+    </div>
+    <div class="banner">轮播图</div>
+    <div class="zut">主体部分</div>
+    <div class="content">
+      <div class="shouji w">手机商品</div>
+      <div class="diannao w">电脑商品</div>
+      <div class="dianshi w">电视商品</div>
+      <div class="dianwan w">电玩商品</div>
+    </div>
+    <script>
+      //滚动到对应的位置显示隐藏
+      var toolTop = $(".zut").offset().top;//主体部分
+      Toll();
+      var key = true;
+      function Toll() {//如果滚动到主体部分就显示电梯
+        if ($(document).scrollTop() >= toolTop) {
+          $(".elevator").fadeIn();
+        } else {
+          $(".elevator").fadeOut();
+        }
+      }
+
+      $(window).scroll(function () {
+        Toll();
+        //页面滚动,电梯内容对应显示
+       if(key){
+        $(".content .w").each(function (i,ele) {
+          //如果页面卷去的头部大于等于,当前那个元素的的头部
+          if($(document).scrollTop() >= $(ele).offset().top){
+            //那我就把电梯导航当前那个元素加上 current
+            $(".elevator li").eq(i).addClass("current").siblings().removeClass();
+          }
+          })
+       }
+        //添加点击事件
+        $(".elevator li").click(function () {
+          key = false
+          //当我们点击电梯导航,就要计算出页面要去往的位置
+          var current = $(".content .w").eq($(this).index()).offset().top;
+          //页面滚动效果
+          $("body,html").stop().animate({
+            scrollTop: current,
+          },function () {
+            key = true
+            });
+          $(this).addClass("current").siblings().removeClass();
+        });
+      });
+    </script>
+  </body>
+</html>

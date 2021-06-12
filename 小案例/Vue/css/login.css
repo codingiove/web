@@ -1,0 +1,90 @@
+.down {
+  background: url("../imgs/logo.jpg");
+  position: absolute;
+  top: 0;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  z-index: 2;
+  display: block;
+}
+.down span {
+  color: #673bbf;
+  font-size: 24px;
+  float: right;
+  margin: 8px 24px 0 0;
+}
+.nr {
+  background: url("../imgs/1.jpg") no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.deng h1 {
+  color: #673bbf;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.logoin input {
+  width: 270px;
+  height: 41px;
+  border-radius: 2rem;
+  text-indent: 0.42rem;
+  background-color: transparent;
+  border: #673bbf 2px solid;
+  color: #febd21;
+  font-size: 20px;
+}
+.logoin {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.logoin p {
+  margin-top: 8px;
+  color: #febd21;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.passwrod input {
+  width: 270px;
+  height: 41px;
+  border-radius: 2rem;
+  text-indent: 0.42rem;
+  background-color: transparent;
+  border: #673bbf 2px solid;
+  color: #ffb400;
+  font-size: 20px;
+}
+.passwrod {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.passwrod p {
+  margin-top: 8px;
+  color: #ffb400;
+  font-size: 18px;
+  margin-left: 10px;
+}
+.denglu {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 300px;
+  height: 41px;
+  transform: translate(-50%, -50%);
+  background-color: #673bbf;
+  border: #673bbf 2px solid;
+  border-radius: 2rem;
+}
+.denglu span {
+  color: #febd21;
+  font-size: 1rem;
+}

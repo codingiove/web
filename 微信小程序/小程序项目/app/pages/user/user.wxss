@@ -1,0 +1,129 @@
+page {
+  background-color: #edece8;
+}
+
+.user button {
+  margin: 80rpx 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 100%);
+}
+
+.user_info_warp {
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+  background-color: #f7544b;
+}
+
+.user_img_warp {
+  position: relative;
+}
+
+.user_img_warp .user_info {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.user_img_warp .user_icon {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.user_info_warp .user_img {
+  height: 50vh;
+  filter: blur(10rpx);
+}
+
+.user_content {
+  position: relative;
+}
+
+.user_main {
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%);
+  top: -40rpx;
+  padding-bottom: 40rpx;
+}
+
+.history_warp {
+  background-color: #fff;
+  display: flex;
+}
+
+.history_warp navigator {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+}
+
+.history_warp navigator .his_num {
+  color: #f7544b;
+}
+
+.orders_wrap {
+  margin-top: 40rpx;
+  background-color: #fff;
+}
+
+.orders_wrap .orders_title {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.orders_wrap .orders_content {
+  display: flex;
+}
+
+.orders_content navigator {
+  padding: 25rpx 0;
+  flex: 1;
+  text-align: center;
+}
+
+.orders_content navigator .iconfont {
+  color: #f7544b;
+  font-size: 40rpx;
+}
+
+.orders_content .orders_name {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+.orderss_wrap {
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+
+.app_info_wrap {
+  margin-top: 30rpx;
+  background-color: #fff;
+}
+
+.app_info_wrap .app_info_item {
+  padding: 20rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.app_info_contact {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rec_warp {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  background-color: #fff;
+}

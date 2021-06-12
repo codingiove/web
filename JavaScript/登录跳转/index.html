@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="hai"></div>
+    <script>
+      /* 
+      console.log(location.search);// ?uname=aa
+      一开始传过来的参数是这样的,但我们不想要 ?
+
+       var Name = location.search.substr(1);
+      所以就用 substr 截取字符串得到的结果就是 uname=aa
+      
+      然后把字符串分割为数组 split 刚好可以实现
+      split能把字符串分割成伪数组
+      //["uname", "aa"]
+           */
+      var div = document.querySelector(".hai");
+      var Name = location.search.substr(1);
+      var arr = Name.split("=");
+      div.innerHTML = arr[1] + "欢迎你";
+    </script>
+  </body>
+</html>

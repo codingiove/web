@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Nav":"/pages/component/Nav"
+  },
+  "navigationBarTitleText":"基础用法"
+}

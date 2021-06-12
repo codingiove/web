@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: #000000;
+    }
+    .health {
+      width: 1200px;
+      margin: 0x auto;
+      display: flex;
+    }
+    .nav {
+      height: 500px;
+    }
+    .health li {
+      position: relative;
+      flex: 1;
+      list-style: none;
+      height: 50px;
+      width: 60px;
+      font-size: 20px;
+      text-align: center;
+      line-height: 50px;
+      background-color: rgb(255, 0, 170);
+      cursor: pointer;
+    }
+    .cloud {
+      height: 64px;
+      position: absolute;
+      width: 120px;
+      background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587648826558&di=0ec7e59c2f58520a1d635981593848a0&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fmobile%2F2018-07-25%2F5b583f6db2c2b_130_170.jpg)
+        no-repeat;
+      left: 0;
+      z-index: 2;
+    }
+  </style>
+  <body>
+    <div class="nav">
+      <span class="cloud"></span>
+      <ul class="health">
+        <li>首页首页</li>
+        <li>首页首页</li>
+        <li>首页首页</li>
+        <li>首页首页</li>
+        <li>首页首页</li>
+        <li>首页首页</li>
+        <li>首页首页</li>
+        <li>首页首页</li>
+        <li>首页首页</li>
+        <li>首页首页</li>
+      </ul>
+    </div>
+    <script src="../JavaScript基础/轮播图+动画库+回到顶部/Animation.js"></script>
+    <script>
+      var cloud = document.querySelector(".cloud");
+      var lis = document.querySelector(".health").querySelectorAll("li");
+      var key = 0;
+      for (let i = 0; i < lis.length; i++) {
+        lis[i].addEventListener("mouseenter", function () {
+          Animation(cloud, this.offsetLeft);
+        });
+        lis[i].addEventListener("mouseleave", function () {
+          Animation(cloud, key);
+        });
+        lis[i].addEventListener("click", function () {
+          key = this.offsetLeft;
+        });
+      }
+    </script>
+  </body>
+</html>

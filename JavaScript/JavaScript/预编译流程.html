@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>预编译</title>
+  </head>
+  <body>
+    函数执行前先发生预编译 1.先创建一个AO对象 ，也就是执行期上下文
+    2.找形参和变量声明，将形参名和变量作为 AO 的属性名，值为undefined AO:{
+    (第一步 undefined) a:undefined b:undefined (第二步 找变量声明和形参)
+    a:undefined b:undefined (第三步 形参实参相统一) a:1 b:undefined (第四步
+    找函数声明) 将函数声明的名当做AO对象的属性名 a:function a(){} b:undefined
+    接下来就是函数的执行,
+    函数的执行过程中所访问的一切变量,所修改的一切变量从哪里来从AO里来
+    现在函数执行的第一步 a = 123,a上他的作用域链里面去找作用域链最顶端就是AO
+    a:123 b:234 }
+    <script>
+      /*
+    (1)创建AO对象。AO即 Activation Object 活跃对象，其实就是「执行期上下文」。
+    (2)找形参和变量声明，将形参名和变量作为 AO 的属性名，值为undefined。
+    (3)将实参值和形参统一，实参的值赋给形参。
+    (4)查找函数声明,函数名作为 AO 对象的属性名，值为整个函数体。
+     (1)
+     AO{
+       (2)
+       a:undefined
+       b:undefined
+      (3)
+       a:1
+       b:undefined
+      (4) 
+       a:function fn
+       b:undefined
+     }
+     */
+      //  function fn(a) { //(4)打印ƒ a(){}
+      // console.log(a);
+
+      // var a = 666; //重新执行(2)步
+      // /*
+      // a:function fn
+      // b:undefined
+      // 改成
+      // a:666
+      // b:undefined
+      //*/
+      // console.log(a);//666
+
+      // function a() {}//666
+      // console.log(a);
+
+      // var b = function() {};
+      // console.log(b);
+      //   }
+      //   fn(1);
+      //ƒ a() {}
+      // 666
+      // 666
+      // ƒ () {}
+
+      function a(a) {
+        //AO a:1 下一步 查找函数声明,函数名作为 AO 对象的属性名，值为整个函数体 AO a:1 ----> function(){}
+        var a = 100;
+        //然后在执行第二步 AO a:fun(){}----> a:100
+        console.log(a); //100
+        function a() {} //AO里面把原有的100改成fun,继续执行
+        var a = 200; //AO里面把原有的func该成200,继续执行
+        console.log(a); //200
+
+        function b() {} //原有的AO是undefined改成fun,继续执行
+        console.log(b); //fun
+        var b = 300;
+        function b() {} //原有的AO里的fun改成300
+        console.log(b); //300
+      }
+      a(1);
+"----------------------------------------------------------"
+      console.log(c);
+      var c = 1;
+      console.log(c);
+      function c() {
+        console.log(c);
+      }
+      /* 
+      预解析
+      var c;
+      function c() {
+        console.log(c);
+      }
+      console.log(c);
+      c = 1;
+      console.log(c);  
+       */
+    </script>
+  </body>
+</html>

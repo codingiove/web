@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组</title>
+  </head>
+  <body>
+    <!--改变原数组 push,pop,shift,unshift,sort,reverse,splice -->
+    <!--不改变原数组 concat,join,split -->
+    <script>
+      var arr = [1, 2, 3, 5];
+      console.log(arr.join("-"));
+      // arr.push(4);  //往数组后面添加
+      // arr.pop()     //剪切数组最后一位 ,忽略传参
+      // arr.shift()   //删除数组中的第一个元素
+      // arr.unshift() //跟push一样只不过在前面添加
+      // arr.reverse() //逆转顺序
+      // arr.splice(0,2,2,1) //(从第几位开始 , (截取的长度) , 在截取的位置添加新数据)
+      // arr.splice(3,0,4)   //在第三位添加一个 4
+      // arr.sort(); //排序
+
+      //都在控制台查看 ↓
+      // arr.concat(arr1) //两个数组合并 ,在控制台输入看
+      // arr.join("-")    //把数组的每一位以-连接起来（按照参数来连接） ,并返回字符串形式
+      // str.split("-")   //你用什么形式拼接 ,就以什么形式拆
+      var str2 = "a,b,c";
+      console.log(str2.split(','));
+      
+    </script>
+  </body>
+</html>

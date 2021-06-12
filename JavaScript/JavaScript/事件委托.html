@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+ <title></title>
+<script type="text/javascript">
+  window.onload = function() {
+    // 获取父节点，并为它绑定click单击事件。 false 表示事件在冒泡阶段触发（默认）
+  document.getElementById('parent-list').addEventListener('click', function(event) {
+  event = event || window.event;
+  // e.target 表示：触发事件的对象
+  //如果触发事件的对象是我们期望的元素，则执行否则不执行
+  if (event.target && event.target.className == 'link') {
+  // 或者写成 if (event.target && event.target.nodeName.toUpperCase() == 'A') {
+   console.log('我是ul的单击响应函数');
+        }
+     }, false);
+  };
+</script>
+</head>
+上方代码，为父节点注册 click 事件，当子节点被点击的时候，click 事件会从子节点开始向父节点冒泡。
+父节点捕获到事件之后，开始执行方法体里的内容：通过判断 event.target 拿到了被点击的子节点<a>。
+从而可以获取到相应的信息，并作处理。
+换而言之，参数为false，说明事件是在冒泡阶段触发（子元素向父元素传递事件）。
+而父节点注册了事件函数，子节点没有注册事件函数，此时，会在父节点中执行函数体里的代码。
+
+总结：事件委托是利用了冒泡机制，减少了事件绑定的次数，减少内存消耗，提高性能。
+<body>
+   <ul id="parent-list" style="background-color: #bfa;">
+        <li><a href="javascript:;" class="link">超链接一</a></li>
+        <li><a href="javascript:;" class="link">超链接二</a></li>
+        <li><a href="javascript:;" class="link">超链接三</a></li>
+   </ul>
+ </body>

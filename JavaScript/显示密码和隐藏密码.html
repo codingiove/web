@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .top {
+      width: 500px;
+      position: relative;
+      margin: 100px auto;
+      border-bottom: 1px solid red;
+    }
+    .top input {
+      border: 0;
+      outline: none;
+      width: 300px;
+      height: 30px;
+    }
+    .top img {
+      width: 24px;
+      position: absolute;
+      right: 2px;
+      top: 2px;
+    }
+  </style>
+  <body>
+    <div class="top">
+      <label for="">
+        <img src="./img/b.png" alt="" id="eye" />
+      </label>
+      <input type="password" id="pwd" />
+    </div>
+    <script>
+      var eye = document.getElementById("eye");
+      var pwd = document.getElementById("pwd");
+      var key = true;
+      eye.onclick = function () {
+        //第一次点击, key是true(也就是满足条件)所以就更换 type 属性和图片,因为满足条件所以不执行 else
+        //然后把 key重新赋值为 false 第二次点击时 if(key已经=false)所以就不满足条件执行 else
+        //然后 else 把 key 赋值为 true 所以这样就可以一直显示密码和隐藏密码
+        if (key) {
+          pwd.type = "text";
+          eye.src = "./img/z.png";
+          key = false;
+        } else {
+          pwd.type = "password";
+          eye.src = "./img/b.png";
+          key = true;
+        }
+      };
+    </script>
+  </body>
+</html>

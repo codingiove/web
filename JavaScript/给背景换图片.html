@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: url("http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg")
+        no-repeat center top;
+      background-size: cover;
+    }
+    li {
+      list-style: none;
+    }
+    .tup {
+      overflow: hidden;
+      margin: 100px auto;
+      background-color: #fff;
+      width: 410px;
+      padding-top: 3px;
+    }
+    .tup img {
+      width: 100px;
+    }
+    .tup li {
+      float: left;
+      margin: 0 1px;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <ul class="tup">
+      <li>
+        <img
+          src="http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg"
+        />
+      </li>
+      <li>
+        <img
+          src="http://attach.bbs.miui.com/forum/201401/11/145825zn1sxa8anrg11gt1.jpg"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src="http://d.hiphotos.baidu.com/zhidao/pic/item/6a63f6246b600c334c3e91cb1e4c510fd9f9a16a.jpg"
+        />
+      </li>
+      <li>
+        <img
+          src="http://00.minipic.eastday.com/20170818/20170818115256_d41d8cd98f00b204e9800998ecf8427e_1.jpeg"
+        />
+      </li>
+    </ul>
+    <script>
+      var imgs = document.querySelector(".tup").querySelectorAll("img");
+      for (var i = 0; i < imgs.length; i++) {
+        imgs[i].onclick = function () {
+          document.body.style.backgroundImage = "url(" + this.src + ")"; //这个this是点哪张图就获取哪张图片的src地址
+        };
+      }
+    </script>
+  </body>
+</html>

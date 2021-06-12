@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      id="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>html5向左滑动删除特效</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      header {
+        background: #f7483b;
+        border-bottom: 1px solid #ccc;
+      }
+
+      header h2 {
+        text-align: center;
+        line-height: 54px;
+        font-size: 16px;
+        color: #fff;
+      }
+
+      .list-ul {
+        overflow: hidden;
+      }
+
+      .list-li {
+        line-height: 60px;
+        border-bottom: 1px solid #fcfcfc;
+        position: relative;
+        padding: 0 12px;
+        color: #666;
+        background: #f2f2f2;
+        transform: translateX(0px);
+        /* -webkit- */
+      }
+
+      .btn {
+        position: absolute;
+        top: 0;
+        right: -80px;
+        text-align: center;
+        background: #ffcb20;
+        color: #fff;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>消息列表</h2>
+    </header>
+    <section class="list">
+      <ul class="list-ul">
+        <li id="li" class="list-li">
+          <div class="con">你的快递到了，请到楼下签收</div>
+          <div class="btn">删除</div>
+        </li>
+        <li class="list-li">
+          <div class="con">哇，你在干嘛，快点来啊就等你了</div>
+          <div class="btn">删除</div>
+        </li>
+      </ul>
+    </section>
+    <script>
+      window.addEventListener("load", function () {
+        let initX; //  起始位置
+        let moveX; //  滑动时的位置
+        let X = 0; // 移动距离
+        let objX = 0; // 目标对象位置
+        window.addEventListener("touchstart", function (event) {
+          let obj = event.target.parentNode; // 获取 li 元素
+          if (obj.className == "list-li") {
+            initX = event.targetTouches[0].pageX; // 当前点击的位置
+            objX =
+              obj.style.WebkitTransform.replace(/translateX\(/g, "").replace(
+                /px\)/g,
+                ""
+              ) * 1; // 拿到里面的数字,然后转换一下类型
+          }
+          if (objX == 0) {
+            window.addEventListener("touchmove", function (event) {
+              let obj = event.target.parentNode;
+              if (obj.className == "list-li") {
+                moveX = event.targetTouches[0].pageX; // 滑动时的位置
+                //  滑动的距离 - 起始位置 , 得到手指实时偏移距离
+                X = moveX - initX;
+
+                // 向右滑动
+                if (X >= 0) {
+                  obj.style.WebkitTransform = `translateX(0px)`;
+                  // 向左滑动
+                } else if (X < 0) {
+                  // 负数变正数,正数还是正数
+                  let abs = Math.abs(X); // 绝对值  -10.5882568359375 === 10.5882568359375
+                  obj.style.WebkitTransform = `translateX(-${abs}px)`;
+                  // 如果大于删除 div的宽度就不允许在滚动了
+                  if (abs > 80) {
+                    abs = 80;
+                    obj.style.WebkitTransform = `translateX(-${abs}px)`;
+                  }
+                }
+              }
+            });
+            // 删除按钮已经出来了
+          } else if (objX < 0) {
+            window.addEventListener("touchmove", function (event) {
+              let obj = event.target.parentNode;
+              if (obj.className == "list-li") {
+                moveX = event.targetTouches[0].pageX; // 滑动时的位置
+                //  滑动的距离- 起始位置 , 得到手指实时偏移距离
+                X = moveX - initX;
+                // 让删除按钮隐藏回去
+                if (X >= 0) {
+                  let abs = -80 + Math.abs(X); // 减去删除按钮的宽度,
+                  obj.style.WebkitTransform = `translateX(${abs}px)`;
+                  // 减到 0 也代表 删除按钮隐藏了
+                  if (abs > 0) {
+                    abs = 0;
+                    obj.style.WebkitTransform = `translateX(${abs}px)`;
+                  }
+                  //向左滑动 , 防止删除按钮出来了,再次向左滑动会闪烁
+                } else {
+                  obj.style.WebkitTransform = `translateX(${-80}px)`;
+                }
+              }
+            });
+          }
+        });
+        
+        
+        window.addEventListener("touchend", function (event) {
+          let obj = event.target.parentNode;
+          if (obj.className == "list-li") {
+            objX =
+              obj.style.WebkitTransform.replace(/translateX\(/g, "").replace(
+                /px\)/g,
+                ""
+              ) * 1;
+            // 小于 -40 隐藏删除按钮
+            if (objX > -40) {
+              obj.style.WebkitTransform = `translateX(${0}px)`;
+              objX = 0;
+            } else {
+              // 大于就接着显示
+              obj.style.WebkitTransform = `translateX(${-80}px)`;
+              objX = -80;
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

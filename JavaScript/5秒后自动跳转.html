@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      var div = document.querySelector("div");
+      var timer = 5;
+      times();
+      setInterval(times, 1000);
+      function times() {
+        if (timer === 0) {
+          // location.href = "https://www.baidu.com/";
+          // location.assign("https://www.baidu.com/")
+          location.replace("https://www.baidu.com/")
+        } else {
+          div.innerHTML = "您将在" + timer + "秒后跳转";
+          timer--;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>倒序循环</title>
+  </head>
+  <body>
+    <script>
+      let arr = [
+        { time: "第一" },
+        { time: "" },
+        { time: "" },
+        { time: "第二" },
+        { time: "" },
+        { time: "" },
+        { time: "最后出现" },
+        { time: "" },
+      ];
+      let flag = true;
+      /* 
+      1.先执行  let i = arr.length - 1
+      2.判断 i 是否满足条件 (i >= 0)
+      3.如果第二步满足,执行循环体的代码 
+      4.执行完循环体的代码,执行 (i--)
+      5.然后重新去执行 第 2 步,第 3 步,第 4 步(直到条件不满足)
+      */
+      for (let i = arr.length - 1; i >= 0; i--) {
+        // (1) i = 8 - 1     (2)7 >= 0  (4)i--
+        // (3) 👇
+        if (arr[i].time && flag) {
+          flag = false;
+          console.log("找到了");
+        }
+        console.log(arr[i]);
+      }
+    </script>
+  </body>
+</html>

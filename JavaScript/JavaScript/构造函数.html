@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      构造函数的执行流程:
+       1.立刻创建一个新的对象
+       2.将新建的对象设置为函数中this,this指向当前创建的构造函数
+       3.执行函数中的代码
+       4.将新建的对象作为返回值返回
+    */
+      function Abs(name) {
+        this.name = name;
+        console.log("this:", this);
+      }
+      var abs = new Abs("张三");
+      console.log(abs);
+
+      /* 
+      
+      this: Abs {name: "张三"}
+      Abs {name: "张三"}
+      
+      */
+    </script>
+  </body>
+</html>

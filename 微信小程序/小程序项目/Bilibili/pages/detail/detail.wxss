@@ -1,0 +1,80 @@
+.video {
+  width: 100%;
+}
+
+.introduce {
+  overflow: hidden;
+  /*自动隐藏文字*/
+  text-overflow: ellipsis;
+  /*文字隐藏后添加省略号*/
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /*想要显示的行数*/
+  -webkit-box-orient: vertical;
+  font-size: 30rpx;
+}
+
+.author text:nth-child(1) {
+  font-weight: bold;
+  margin-right: 50rpx;
+}
+
+.author text:nth-child(2) {
+  margin-right: 10rpx;
+}
+
+.author text:nth-child(3) {
+  margin-right: 10rpx;
+}
+
+.Suggestedvideos_img {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.Suggestedvideos_img image {
+  flex: 1;
+  width: 200rpx;
+  align-items: center;
+  border-radius: 29%;
+  padding: 14rpx;
+  box-sizing: border-box;
+}
+
+.Suggestedvideos_img .title {
+  font-size: 30rpx;
+  flex: 2;
+  overflow: hidden;
+  /*自动隐藏文字*/
+  text-overflow: ellipsis;
+  /*文字隐藏后添加省略号*/
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /*想要显示的行数*/
+  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  display: flex;
+  font-size: 30rpx;
+  align-items: center;
+  justify-items: center;
+}
+
+.pink {
+  color: pink;
+  width: 100%;
+  overflow: hidden;
+  /*自动隐藏文字*/
+  text-overflow: ellipsis;
+  /*文字隐藏后添加省略号*/
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /*想要显示的行数*/
+  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+}
+
+.barrage {
+  margin-left: 20rpx;
+}
+

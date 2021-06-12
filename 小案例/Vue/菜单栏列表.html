@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/resetcommon.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./vue.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div class="my" :class="isCollapse ? 'b' :'a'">
+      <div>
+        <div class="sq" @click="toggleCollapse">|||</div>
+        <ul>
+          <li v-for="(item, index) in items" :key="index" class="tit">
+            <div class="hover" @click="curindex = index">
+              <!--我点击哪个就把当前的索引值赋值给 curindex -->
+              <img src="./imgs/place.png" alt="" />
+              <i>{{item.name}}</i>
+              <b class="arrow" :class="curindex == index ? 'x' : 'h'">^</b>
+            </div>
+            <ul class="sunb">
+              <li
+                v-for="(sub, i) in item.ej"
+                :key="i"
+                v-show="curindex === index"
+              >
+                <!-- 当前的索引值是不是一样的 ，如果是就显示 -->
+                <span>{{ sub.name }}</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: ".my",
+        data() {
+          return {
+            curindex: 0,
+            isCollapse: false,
+            items: [
+              {
+                name: "水果",
+                ej: [
+                  { name: "苹果" },
+                  { name: "香蕉" },
+                  { name: "橘子" },
+                  { name: "西瓜" },
+                ],
+              },
+              {
+                name: "衣服",
+                ej: [
+                  { name: "上衣" },
+                  { name: "短袖" },
+                  { name: "长裤" },
+                  { name: "卫衣" },
+                ],
+              },
+              {
+                name: "手机",
+                ej: [
+                  { name: "小米" },
+                  { name: "OPPO" },
+                  { name: "vivo" },
+                  { name: "魅族" },
+                ],
+              },
+            ],
+          };
+        },
+        methods: {
+          toggleCollapse() {
+            this.isCollapse = !this.isCollapse;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

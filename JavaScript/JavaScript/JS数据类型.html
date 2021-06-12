@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <h1>(1)JS 的变量数据类型,是在程序运行的过程中，根据等号右边的值来确定的</h1>
+
+  <h3>
+    (2) JS中一共有六种数据类型 基本数据类型（原始值类型）<br />
+    String Number Boolean Null 空值 Undefined 未定义<br />
+    引用数据类型(引用类型):Object 对象。
+  </h3>
+
+  <p>
+    (3) 注意：内置对象 Function 、Array 、Date 、RegExp 、Error 等都是属于
+    Object类型
+    <b>也就是说,(除了那五种基本数据类型之外)</b>,其他的,都称之为 Object类型。
+  </p>
+
+  <p>
+    (4)
+    数据类型之间最大的区别:<br>
+    基本数据类型：参数赋值的时候，传数值。
+    引用数据类型：参数赋值的时候，传地址（修改的同一片内存空间）
+  </p>
+
+  <body>
+    <script>
+      //(1)
+      var name = "qianguyihao";
+      name = 123; // 强制将变量 name 修改为 数字类型
+    </script>
+  </body>
+</html>

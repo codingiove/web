@@ -1,0 +1,30 @@
+<!-- 公共头部 -->
+<MyTop></MyTop>
+<view>
+	<!-- 视频 -->
+	<video src="{{videoDetailsData.videoSrc}}" duration controls class="video"></video>
+</view>
+<!-- 介绍 -->
+<view class="introduce">
+	{{videoDetailsData.videoTitle}}
+</view>
+<!-- 作者 -->
+<view class="author">
+	<text>作者:{{videoDetailsData.author}}</text>
+	<text>{{videoDetailsData.playCount}}次播放量</text>
+	<text>{{videoDetailsData.commentCount}}弹幕</text>
+	<text>{{videoDetailsData.date}}</text>
+</view>
+<!-- 推荐视频 -->
+<view class="Suggestedvideos">
+	<block wx:for="{{SuggestedvideosData}}" wx:key="index">
+		<view class="Suggestedvideos_img">
+		<image src="{{item.imgSrc}}" mode="widthFix"></image>
+		<view class="title">
+			<text class="pink">{{item.title}}</text>
+			<text>{{item.playMsg}}万观看</text>
+			<text class="barrage">{{item.commentCount}}弹幕</text>
+		</view>
+		</view>
+	</block>
+</view>

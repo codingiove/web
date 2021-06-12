@@ -1,0 +1,6 @@
+"better-scroll": "^1.15.2"  51.9kb
+
+"better-scroll": "^2.3.0"   109kb
+"@better-scroll/core": "^2.3.0", 47.8kb
+"@better-scroll/pull-down": "^2.3.0",
+"@better-scroll/pull-up": "^2.3.0", 

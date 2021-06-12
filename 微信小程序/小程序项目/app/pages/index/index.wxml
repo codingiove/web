@@ -1,0 +1,42 @@
+<view class="index">
+	<!-- 搜索 -->
+	<searchInput />
+	<!-- 轮播图 -->
+	<view class="index_swiper">
+		<swiper autoplay indicator-dots circular>
+			<block wx:for="{{carouselData}}" wx:key="index">
+				<swiper-item>
+					<navigator hover-class="none">
+						<image src="{{item.image_src}}" mode="widthFix" />
+					</navigator>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<!-- 导航菜单 -->
+	<view class="index_navigate">
+		<block wx:for="{{NegotiateMenusData}}" wx:key="index">
+			<navigator hover-class="none">
+				<image src="{{item.image_src}}" mode="widthFix" />
+			</navigator>
+		</block>
+	</view>
+	<!-- 楼层 -->
+	<view class="index_floor">
+		<block wx:for="{{FloorData}}" wx:key="index" wx:for-item="item1">
+			<!-- 标题 -->
+			<view class="floor_title">
+				<image src="{{item1.floor_title.image_src}}" mode="widthFix" />
+			</view>
+			
+			<block wx:for="{{item1.product_list}}" wx:key="index">
+			<!-- 内容 -->
+				<view class="floor_list">
+					<navigator hover-class="none">
+						<image src="{{item.image_src}}" mode="{{index === 0 ?'widthFix' : 'scaleToFill'}}" />
+					</navigator>
+				</view>
+			</block>
+		</block>
+	</view>
+</view>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* input:disabled {
+      border: 1px solid #ddd;
+      background-color: #f5f5f5;
+      color: #aca899;
+    } */
+    /* input.disabled {
+      border: 1px solid #ddd;
+      background-color: #f5f5f5;
+      color: #aca899;
+    } */
+    .dib:disabled {
+      background-color: #ff0000;
+      border-color: #ff0000;
+      border-radius: 3%;
+      width: 80px;
+      height: 25px;
+      opacity: 0.5;
+      color: #fff;
+    }
+  </style>
+  <body>
+    <input type="text" />
+    <button class="dib">发送短信</button>
+    <script>
+      var int = document.querySelector("input");
+      var dib = document.querySelector(".dib");
+      var timer = 3;
+      dib.addEventListener("click", function () {
+        int.disabled = true;
+        this.disabled = true;
+        var trmes = setInterval(function () {
+          if (timer == 0) {
+            clearInterval(trmes);
+            int.disabled = false;
+            dib.disabled = false;
+            dib.innerHTML = "发送短信";
+            timer = 3;
+          } else {
+            dib.innerHTML = "还剩下" + timer + "秒";
+            timer--;
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

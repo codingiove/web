@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for in</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        a: "1",
+        b: 2,
+        c: 3,
+        d: 4,
+        e:'5',
+        __proto__: {
+          laseName: "原型"
+        }
+      };
+      //如果我想访问对象里面的(值) 通过这种方式去访问 obj[key]
+      //hasOwnProperty 判断是不是自己的方法
+      for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          //console.log(key); // 这里的 key 是：对象属性的键
+          console.log(key + "-" + obj[key]); // 这里的 obj[key] 是：对象属性的值
+        }
+      }
+    </script>
+  </body>
+</html>

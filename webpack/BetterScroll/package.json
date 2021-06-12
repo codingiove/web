@@ -1,0 +1,19 @@
+{
+  "name": "BetterScroll",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@better-scroll/core": "^2.3.0",
+    "@better-scroll/pull-down": "^2.3.0",
+    "@better-scroll/pull-up": "^2.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

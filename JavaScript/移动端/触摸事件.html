@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .dis {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+  <body>
+    <div class="dis"></div>
+    <script>
+      var div = document.querySelector(".dis");
+      div.addEventListener("touchstart", function () {
+        console.log("1");
+      });
+    </script>
+  </body>
+</html>

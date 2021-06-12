@@ -1,0 +1,73 @@
+.nav_scroll {
+  white-space: nowrap;
+  padding: 5rpx 0;
+  margin-bottom: 24rpx;
+}
+
+.nav_item {
+  padding: 20rpx 45rpx;
+  display: inline-block;
+  font-size: 30rpx;
+}
+
+.active {
+  border-bottom: 5rpx solid #de688b;
+}
+
+.swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper {
+  height: 233rpx;
+  display: block;
+}
+
+.video {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5rpx;
+  justify-content: space-evenly;
+}
+.video navigator{
+  display: flex;
+  /* width:0%; */
+}
+
+.video_img {
+  position: relative;
+  width: 48%;
+}
+
+.video_img image {
+  width: 100%;
+
+}
+
+.video_icon {
+  position: absolute;
+  left: 0;
+  top: 180rpx;
+  width: 100%;
+  color: white;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.comment {
+  position: relative;
+  left: 10rpx;
+}
+
+.video_img .content {
+  overflow: hidden;
+  /*自动隐藏文字*/
+  text-overflow: ellipsis;
+  /*文字隐藏后添加省略号*/
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /*想要显示的行数*/
+  -webkit-box-orient: vertical;
+  font-size: 30rpx;
+}

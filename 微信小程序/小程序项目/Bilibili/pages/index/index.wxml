@@ -1,0 +1,42 @@
+<view class="mian">
+	<!-- 公共的头部 -->
+	<MyTop></MyTop>
+	<!-- 首页导航 -->
+	<view class="navbar">
+		<!-- data-index="{{index}}" 自定义属性 -->
+		<scroll-view class="nav_scroll" scroll-x>
+			<view wx:for="{{navList}}" wx:key="index" data-index="{{index}}" class="nav_item {{index === currentindex ? 'active' :''}}" bindtap="currenactive">
+				{{item.text}}
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 轮播图 -->
+	<swiper indicator-dots autoplay circular class="swiper" indicator-color="#00000" indicator-active-color="#fffffe">
+		<block wx:for="{{slideshow}}" wx:key="index">
+			<swiper-item>
+				<view class="swiper-item">
+					<image src="{{item.imgSrc}}" mode="widthFix" />
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+	<!-- 视频列表-->
+	<view class="video">
+		<block wx:for="{{videolist}}" wx:key="index">
+			<view class="video_img">
+				<navigator url="../detail/detail?id={{item.id}}">
+					<image src="{{item.imgSrc}}" mode="widthFix"></image>
+				</navigator>
+				<!-- 图标 -->
+				<view class="video_icon">
+					<text>播放量:{{item.playCount}}</text>
+					<text class="comment">评论:{{item.commentCount}}</text>
+				</view>
+				<!-- 内容 -->
+				<view class="content">
+					{{item.desc}}
+				</view>
+			</view>
+		</block>
+	</view>
+</view>

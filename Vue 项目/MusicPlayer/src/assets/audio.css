@@ -1,0 +1,308 @@
+.forbid-transition {
+  transition: none !important;
+}
+/*控制器综合*/
+.audioplayer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  white-space: nowrap;
+  background-color: #384245;
+  color: #737a7c;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 104;
+}
+.audioplayer .ap-status {
+  position: relative;
+  margin: 0 auto;
+  width: 1100px;
+}
+.audioplayer .ap-controller {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #384245;
+  position: relative;
+}
+.audioplayer .ap-button {
+  cursor: pointer;
+  transition: 0.2s;
+}
+.audioplayer .ap-controller .ap-controller-left > *,
+.audioplayer .ap-controller .ap-controller-right > * {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  vertical-align: middle;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+.audioplayer svg:not(.ap-svg-exclude) {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  transition: 0.2s;
+}
+.audioplayer .ap-progress-thumb svg {
+  width: 21px;
+  height: 19px;
+  display: block;
+  cursor: pointer;
+}
+.audioplayer .ap-controller .ap-controller-center .ap-progress-bar {
+  position: absolute;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+}
+
+/*left*/
+.audioplayer .ap-controller-left .ap-cover {
+  width: 60px;
+  height: 60px;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.audioplayer .ap-controller-left .ap-button {
+  padding: 0 8px;
+}
+.audioplayer .ap-controller-left .ap-skipback-button {
+  margin-left: 16px;
+}
+.audioplayer .ap-controller-left .ap-skipforward-button {
+  margin-right: 16px;
+}
+
+/*center*/
+.audioplayer .ap-controller-center {
+  padding: 10px 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* .audioplayer .ap-controller-center .ap-song-msg {
+} */
+.audioplayer .ap-controller-center .ap-song-msg {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.audioplayer .ap-controller-center .ap-song-msg .ap-name {
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.audioplayer .ap-controller-center .ap-song-msg .ap-artist {
+  font-size: 12px;
+  margin-left: 6px;
+  cursor: default;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.audioplayer .ap-controller-center .ap-song-msg .ap-time {
+  font-size: 12px;
+  flex: 1;
+  text-align: right;
+  cursor: default;
+  min-width: 110px;
+}
+.audioplayer .ap-controller-center .ap-song-msg .ap-time .ap-current-time {
+  color: #fff;
+}
+.audioplayer .ap-controller-center .ap-progress-line {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.audioplayer .ap-controller-center .ap-play-track {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+}
+.audioplayer .ap-controller-center .ap-play-bar-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 1.5px;
+  overflow: hidden;
+  background: #909090;
+}
+
+.audioplayer .ap-controller-center .ap-progress-bar {
+  background: #32b0da;
+}
+.audioplayer .ap-controller .ap-controller-center .ap-progress-thumb {
+  transition: -webkit-transform 0.5s linear;
+  transition: transform 0.5s linear;
+  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+  position: absolute;
+  top: -5px;
+  left: -4px;
+}
+
+/*right*/
+.audioplayer .ap-controller-right {
+  width: 360px;
+  padding: 0 8px;
+}
+.audioplayer .ap-controller-right .ap-line {
+  font-size: 24px;
+  padding: 0 8px;
+  cursor: default;
+}
+.audioplayer .ap-controller-right .ap-button {
+  padding: 0 8px;
+}
+.audioplayer .ap-controller-right .ap-volume-line {
+  width: 86px;
+  margin-right: 8px;
+  height: 28px;
+}
+.audioplayer .ap-controller-right .ap-line-draw {
+  height: 24px;
+  width: 1px;
+  background: #979797;
+}
+.audioplayer .ap-controller-right .ap-volume-track {
+  position: relative;
+  width: 100%;
+  height: 3px;
+}
+.audioplayer .ap-controller-right .ap-volume-bar-wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 1.5px;
+  overflow: hidden;
+  background: #909090;
+}
+.audioplayer .ap-controller-right .ap-volume-bar {
+  position: absolute;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #32b0da;
+}
+.audioplayer .ap-controller-right .ap-volume-thumb {
+  position: absolute;
+  top: -4px;
+  left: -6px;
+  cursor: pointer;
+}
+.audioplayer .ap-controller-right .ap-volume-thumb-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #32b0da;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  transition: 0.2s;
+}
+.audioplayer .ap-controller-right .ap-volume-line:hover .ap-volume-thumb-dot {
+  transform: scale(1);
+}
+.audioplayer .ap-controller-right .ap-playlist-button-bg {
+  background: #4a5355;
+  height: 28px;
+  border-radius: 14px;
+  padding: 0 8px 0 6px;
+}
+.audioplayer .ap-controller-right .ap-playlist-button-amount {
+  color: #fff;
+  font-size: 12px;
+  vertical-align: middle;
+  transition: 0.2s;
+}
+
+/*播放列表*/
+.ps {
+  overflow-y: scroll;
+  overflow-anchor: none;
+  -ms-overflow-style: none;
+  touch-action: auto;
+  -ms-touch-action: auto;
+}
+.ps::-webkit-scrollbar {
+  display: none;
+}
+.audioplayer .ap-playlist {
+  width: 620px;
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+  background-color: #384245;
+  border-radius: 6px 6px 0 0;
+  transition: 0.3s;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: lighter;
+}
+.audioplayer .ap-playlist.ap-playlist-hide {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.audioplayer .ap-playlist .ap-playlist-header {
+  padding: 16px 20px 16px 20px;
+  display: flex;
+  cursor: default;
+}
+.audioplayer .ap-playlist .ap-playlist-header .ap-playlist-header-name {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.audioplayer .ap-playlist-header .ap-playlist-header-close {
+  font-size: 14px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.audioplayer .ap-playlist .ap-playlist-body {
+  position: relative;
+  background-color: #455155;
+  height: 260px;
+}
+.audioplayer .ap-playlist .ap-playlist-line {
+  display: flex;
+  cursor: default;
+  justify-content: space-between;
+}
+.audioplayer .ap-playlist .ap-playlist-line:hover {
+  background: #425961;
+  color: #50c9da;
+}
+.audioplayer .ap-playlist .ap-playlist-line.ap-playlist-line-active {
+  background: #425961;
+  color: #32b0da;
+}
+.audioplayer .ap-playlist .ap-playlist-body li {
+  padding: 10px 50px 10px 20px;
+  transition: 0.2s;
+  cursor: pointer;
+  line-height: 21px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .tab_list {
+        background-color: rgb(141, 136, 136);
+        height: 50px;
+        color: rgb(0, 0, 0);
+        line-height: 50px;
+        font-size: 20px;
+      }
+      .tab_list li {
+        width: 100px;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+      }
+      .current {
+        background-color: #e40d0d;
+      }
+      .tab_con  div{
+        display: none;
+      }
+      .show{
+        display: block !important;
+      }
+    </style>
+    <div class="top">
+      <div class="tab_list">
+        <ul>
+          <li class="current">手机</li>
+          <li>鞋子</li>
+          <li>售后</li>
+          <li>水果</li>
+          <li>游戏</li>
+          <li>游戏</li>
+        </ul>
+      </div>
+      <div class="tab_con">
+        <div class="show">1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+      </div>
+    </div>
+    <script>
+      $(".tab_list li").click(function () {
+        $(this).addClass("current").siblings().removeClass("current");
+        var index = $(this).index();
+        $(".tab_con div").eq(index).addClass("show").siblings().removeClass("show");;
+      });
+    </script>
+  </body>
+</html>

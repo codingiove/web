@@ -1,0 +1,24 @@
+<!--  -->
+<view class="goods_list">
+	<searchInput />
+	<!-- navbar -->
+	<view class="list_navbar">
+		<block wx:for="{{list_navbarData}}" wx:key="index">
+			<view class="navbar_item {{index===currentindex?'active':''}}" data-index="{{index}}" bindtap="switchnavbar">{{item}}</view>
+		</block>
+	</view>
+	<!-- 导航栏下的 商品 -->
+	<block wx:for="{{goodslistData}}" wx:key="index">
+		<navigator hover-class="none" url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}">
+			<view class="list_goods">
+				<view class="goods_img">
+					<image mode="widthFix" src="{{item.goods_small_logo ? item.goods_small_logo : 'http://image2.suning.cn/uimg/b2c/newcatentries/0000000000-000000000721208036_1_400x400.jpg'}}" />
+					<view class="goods_description">
+						<view class="goods_name">{{item.goods_name}}</view>
+						<view class="goods_price">¥{{item.goods_price}}</view>
+					</view>
+				</view>
+			</view>
+		</navigator>
+	</block>
+</view>
