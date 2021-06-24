@@ -9,14 +9,13 @@
   <body>
     <script>
       Array.prototype.push = function (value) {
-        if (!this.length && !value) return undefined;
-        let lastValue = null;
-        lastValue = this[this.length - 1];
-        this[this.length] = value;
-        return lastValue;
+        for (var i = 0; i < arguments.length; i++) {
+          this[this.length] = arguments[i];
+        }
+        return this.length;
       };
       var arr = [1, 2, 3];
-      arr.push(6);
+      console.log(arr.push(4,5), arr);
     </script>
   </body>
 </html>
