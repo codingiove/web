@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>找出数组中出现次数最多的item,并统计出现次数</title>
+  </head>
+
+  <body>
+    <script>
+      let obj = {};
+      let num = 0;
+      let item = null;
+      let arr = ["a", "a", "c", "c", "c", "d"];
+      arr.filter((item) => {
+        if (!obj[item]) {
+          obj[item] = 0;
+        }
+        obj[item] = ++obj[item];
+      });
+      Object.keys(obj).forEach((key) => {
+        if (num < obj[key]) {
+          num = obj[key];
+          item = key;
+        }
+      });
+      console.log(item, num);
+    </script>
+  </body>
+</html>

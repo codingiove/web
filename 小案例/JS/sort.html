@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sort</title>
+</head>
+
+<body>
+
+</body>
+// sort 返回值小于 0, x 会被移动到 y 前面
+// sort 返回值大于 0, x 会被移动到 y 后面
+// ?? 左边是 nul l或者 undefined 才会返回 0
+
+
+// 禁用的排在下面,然后在按照人名排序
+<script>
+  var arr = [
+    { name: "2", index: 2 },
+    { name: "3", disabled: true, index: 3 },
+    { name: "5", index: 5 },
+    { name: "1", index: 1 },
+    { name: "4", disabled: true, index: 4 },
+  ]
+  arr.sort((x, y) => {
+    if (x.disabled || y.disabled) {
+      let A = x.disabled ?? 0
+      let B = y.disabled ?? 0
+      return A - B
+    }
+    return x.name - y.name
+  })
+  /*
+    0: {name: "1", index: 1}
+    1: {name: "2", index: -1}
+    2: {name: "5", index: -1}
+    3: {name: "3", disabled: true, index: 3}
+    4: {name: "4", disabled: true, index: 4}
+  */
+</script>
+// -1的排在下面,然后在按照人名排序
+<script>
+  var arr = [
+    { name: "2", index: -1 },
+    { name: "3", index: 3 },
+    { name: "5", index: -1 },
+    { name: "1", index: 1 },
+    { name: "4", index: 4 },
+  ]
+  arr.sort((x, y) => {
+    if (x.index === -1 || y.index === -1) {
+      return y.index - x.index
+    }
+    return x.name - y.name
+  })
+  /*
+    0: {name: "1", index: 1}
+    1: {name: "3", index: 3}
+    2: {name: "4", index: 4}
+    3: {name: "2", index: -1}
+    4: {name: "5", index: -1}
+  */
+</script>
+
+</html>
