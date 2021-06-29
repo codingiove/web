@@ -22,7 +22,10 @@
 <view>
 	<checkbox checked="{{isgirl}}"></checkbox>
 </view>
-
+<!-- for循环 -->
+<block wx:for="{{permission}}" wx:key="index">
+  <view class="{{index === currentIndex ? 'active' : ''}}">{{ item }}</view>
+</block>
 
 <!-- 条件渲染 if -->
 <view wx:if="{{true}}">条件1</view>
