@@ -32,11 +32,63 @@ let operation = {
   2: "停用",
   3: "注销",
   4: "修改",
-  5: "详情"
-}
+  5: "详情",
+};
 // operation[status]
 
-let person = {}
-console.log(person.name.toString()) // 报错
-console.log(person.name?.toString()) // undefined
+let person = {};
+console.log(person.name.toString()); // 报错
+console.log(person.name?.toString()); // undefined
 
+// 递归数组
+var arr = [
+  {
+    name: "一级",
+    children: [
+      {
+        name: "二级",
+        children: [
+          {
+            name: "三级",
+            children: [
+              {
+                name: "四级",
+                children: [
+                  {
+                    name: "五级",
+                    children: [],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+// 递归
+function Recursion(arr) {
+  for (let item of arr) {
+    if (item.children.length) {
+      Recursion(item.children);
+    }
+  }
+}
+Recursion(arr);
+
+let a = { name: "张三" }; // ox1
+let list = [];
+list.push(a);// ox1
+list.push(a);// ox1
+list[0].name = "李四";
+console.log(list[1].name);
+
+var day3 = new Date();// 明天
+day3.getTime() + 24 * 60 * 60 * 1000
+// 一天 24 小时,
+// 1小时 60 分钟,
+// 1分钟 60 秒,
+// 1秒 1000 毫秒
+var day3 = new Date(); // 星期
+day3.getTime() + 7 * 24 * 60 * 60 * 1000

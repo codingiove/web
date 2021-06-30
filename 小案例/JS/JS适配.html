@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS适配</title>
+  </head>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    div {
+      /* 230 / 100 = 2.3rem */
+      width: 2.3rem;
+      height: 2.3rem;
+      background-color: blueviolet;
+    }
+  </style>
+  <body>
+    <div></div>
+    <script>
+      // PC端
+      function setHtmlFontSize() {
+        var designWidth = 1660; // 设计稿宽
+        var font_rate = 100; // 比率
+        let bodyWidth = document.body.offsetWidth; // 网页可见区域宽
+        // 适配
+        document.querySelector("html").style.fontSize =
+          (bodyWidth / designWidth) * font_rate + "px";
+      }
+      setHtmlFontSize();
+      window.onresize = function () {
+        setHtmlFontSize();
+      };
+    </script>
+
+    <script>
+      // 移动端
+      (function () {
+        let designWidth = 750; // 设计图尺寸
+        let html = document.documentElement.clientWidth; // 窗口宽度
+        let rem = (html * 100) / designWidth;
+
+        document.documentElement.style.fontSize = rem + "px";
+      })();
+    </script>
+  </body>
+</html>
