@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    :root{
+      --main-width:102px;
+      --main-height:62px;
+      --main-radius:31px;
+      --main-color:#e9e9eb;
+    }
+    .btn {
+      width: var(--main-width);
+      height: var(--main-height);
+      border-radius: var(--main-radius);
+      background-color: var(--main-color);
+    }
+    .ios-switch {
+      position: relative;
+      appearance: none;
+      cursor: pointer;
+      transition: all 1s;
+      
+      width: var(--main-width);
+      height: var(--main-height);
+      border-radius: var(--main-radius);
+      background-color: var(--main-color);
+    }
+    .ios-switch::after {
+      width: 54px;
+      height: 54px;
+      position: absolute;
+      content: "";
+      left: 4px;
+      top: 4px;
+      border-radius: 27px;
+      background-color: #fff;
+      transition: all .3s cubic-bezier(0.4, 0.4, 0.25, 1.35);
+    }
+    .ios-switch::before {
+      position: absolute;
+      content: "";
+      transition: all .3s cubic-bezier(0.45, 1, 0.4, 1);
+    }
+    .ios-switch:checked {
+      background-color: #5eb662;
+    }
+    .ios-switch:checked::before {
+      transform: scale(0);
+    }
+    .ios-switch:checked::after {
+      transform: translateX(40px);
+    }
+  </style>
+  <body>
+    <input class="ios-switch" type="checkbox" />
+  </body>
+</html>
