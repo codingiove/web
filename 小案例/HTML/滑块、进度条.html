@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>滑块、进度条</title>
+  </head>
+  <body>
+    <form method="post">
+      <input
+        type="range"
+        name="range"
+        min="0"
+        max="100"
+        step="1"
+        value=""
+        onchange="changeValue(event)"
+      />
+    </form>
+    <div class="range">
+      <output id="output" name="result"></output>
+    </div>
+
+    <div class="progress">
+      <meter id="home" value="4" min="0" max="10"></meter>
+      <meter id="root" value="0.6"></meter>
+    </div>
+    <progress id="file" value="32" max="100">32%</progress>
+    <script>
+      function changeValue(event) {
+        let value = event.target.value;
+        let output = document.getElementById("output");
+        output.value = value;
+      }
+    </script>
+  </body>
+</html>
